@@ -1,4 +1,4 @@
-# singtaxi
+# DouDou Taxi
 
 A new Flutter application.
 
