@@ -1,10 +1,21 @@
 
 import 'package:flutter/material.dart';
 
-class createAlertDialog extends StatelessWidget {
+
+class AlertPage extends StatefulWidget{
+  AlertPage ({Key key, this.title}) :super(key: key);
+  final String title;
+  @override
+  State<StatefulWidget> createState() => AlertPageState();
+}
+class  AlertPageState  extends State<AlertPage> {
 @override
 TextEditingController customController = new TextEditingController();
-
+Widget build(BuildContext cx) {
+  return TextField(
+    controller:customController,
+  );
+}
 username(BuildContext context)
 {
   return showDialog(context: context, builder: (context)
@@ -19,7 +30,7 @@ username(BuildContext context)
           elevation: 5.0,
           child: Text('Submit'),
           onPressed:(){
-            Navigator.of(context).pushNamed('/profile');
+            Navigator.of(context).pop();
           },
         )
       ],
@@ -41,7 +52,7 @@ Contact(BuildContext context)
           elevation: 5.0,
           child: Text('Submit'),
           onPressed:(){
-            Navigator.of(context).pushNamed('/profile');
+            Navigator.of(context).pop();
           },
         )
       ],
@@ -63,7 +74,7 @@ Email(BuildContext context)
           elevation: 5.0,
           child: Text('Submit'),
           onPressed:(){
-            Navigator.of(context).pushNamed('/profile');
+            Navigator.of(context).pop();
           },
         )
       ],
@@ -85,7 +96,7 @@ Location(BuildContext context)
           elevation: 5.0,
           child: Text('Submit'),
           onPressed:(){
-            Navigator.of(context).pushNamed('/profile');
+            Navigator.of(context).pop();
           },
         )
       ],
@@ -107,12 +118,12 @@ Nation(BuildContext context)
           elevation: 5.0,
           child: Text('Submit'),
           onPressed:(){
-            Navigator.of(context).pushNamed('/profile');
+            Navigator.of(context).pop();
           },
         )
       ],
     );
   });
 }
-Widget build(BuildContext cx) {}
+
 }
