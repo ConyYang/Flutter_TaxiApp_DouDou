@@ -11,6 +11,7 @@ class _LoginPageState extends State<LoginPage>{
     return new Scaffold(
         appBar: AppBar(
           title: Text('DouDou'),
+          backgroundColor: Colors.brown[600],
         ),
         resizeToAvoidBottomPadding: false,
         body: Column(
@@ -23,13 +24,15 @@ class _LoginPageState extends State<LoginPage>{
                     padding: EdgeInsets.fromLTRB(15.0, 30.0, 0.0, 0.0),
                     child: Text('Hello',
                         style: TextStyle(
-                            fontSize: 80.0, fontWeight: FontWeight.bold)),
+                            fontSize: 80.0, fontWeight: FontWeight.bold,
+                            color: Colors.amber[900]),),
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(16.0, 100.0, 0.0, 0.0),
                     child: Text('DouDou',
                         style: TextStyle(
-                            fontSize: 80.0, fontWeight: FontWeight.bold)),
+                            fontSize: 80.0, fontWeight: FontWeight.bold,
+                            color: Colors.amber[900])),
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(300.0, 100.0, 0.0, 0.0),
@@ -37,7 +40,7 @@ class _LoginPageState extends State<LoginPage>{
                         style: TextStyle(
                             fontSize: 80.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.lightBlue)),
+                            color: Colors.limeAccent[700])),
                   )
                 ],
               ),
@@ -76,7 +79,7 @@ class _LoginPageState extends State<LoginPage>{
                         child: Text(
                           'Forgot Password',
                           style: TextStyle(
-                              color: Colors.lightBlue,
+                              color: Colors.orangeAccent[400],
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Montserrat',
                               decoration: TextDecoration.underline),
@@ -89,8 +92,8 @@ class _LoginPageState extends State<LoginPage>{
                       child: Material(
 
                         borderRadius: BorderRadius.circular(20.0),
-                        shadowColor: Colors.blueAccent,
-                        color: Colors.blue,
+                        shadowColor: Colors.lime[900],
+                        color: Colors.lime[800],
                         elevation: 7.0,
                         child: GestureDetector(
                           onTap: () {
@@ -155,7 +158,7 @@ class _LoginPageState extends State<LoginPage>{
                   child: Text(
                     'Register',
                     style: TextStyle(
-                        color: Colors.lightBlue,
+                        color: Colors.orangeAccent[400],
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline),

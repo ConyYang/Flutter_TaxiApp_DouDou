@@ -56,6 +56,7 @@ flutter:
    - android/assets/PHOTO-2020-02-12-17-33-01.png
    - android/assets/merlion.jpeg
    - android/assets/cony.jpg
+   - android/assets/UserPreference.jpg
    #- images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

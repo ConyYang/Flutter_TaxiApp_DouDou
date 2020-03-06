@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
         home: Scaffold(
-          appBar: AppBar(title: Text("DouDou")),
+          appBar: AppBar(title: Text("DouDou"),
+            backgroundColor: Colors.brown[600],
+          ),
+
           body: StartPage(),
         )
     );

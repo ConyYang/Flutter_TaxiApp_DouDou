@@ -7,7 +7,9 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.brown[600],
         title: const Text('DouDou'),
+
       ),
       //body: Center(child: Text('My Page!')),
       drawer: Drawer(
@@ -15,13 +17,17 @@ class WelcomePage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.brown[600],
+              ),
               accountName: Text("Cony Yang"),
               accountEmail: Text("yangyubei0218@gmail.com"),
               currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.amberAccent[700],
                 child: Text(
                   "A",
-                  style: TextStyle(fontSize: 40.0),
+                  style: TextStyle(fontSize: 40.0,
+                    color: Colors.white),
                 ),
               ),
             ),

@@ -7,83 +7,112 @@ class DropDownPage extends StatefulWidget {
   _DropDownPageState createState() => _DropDownPageState();
 }
 class _DropDownPageState extends State<DropDownPage> {
-  String dropdownValue = 'English';
-
+  String dropdownValue_1 = 'English                    ';
+  String dropdownValue_2 = 'Male                       ';
+  String dropdownValue_3 = 'Not Talkative    ';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Preference",
-        ),
-        centerTitle: true,
+        title: const Text('Profile'),
+        backgroundColor: Colors.brown[600],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            DropdownButton<String>(
-              value: dropdownValue,
-              icon: Icon(Icons.arrow_downward),
-              iconSize: 24,
-              elevation: 16,
-              style: TextStyle(color: Colors.deepPurple),
-              underline: Container(
-                height: 2,
-                color: Colors.deepPurpleAccent,
-              ),
-              onChanged: (String newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                });
-              },
-              items: <String>[
-                'English',
-                'Chinese',
-                'Malaysian',
-                'Japanese',
-                'Cantonese'
-              ]
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
-            /*RaisedButton(
-              child: Text("Open Multiselect"),
-              onPressed: () => _showMultiSelect(context),
-            ),*/
-          ],
+      body: new Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("android/assets/UserPreference.jpg"),
+            fit: BoxFit.cover,
+          ),
         ),
+          alignment: Alignment.center,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                DropdownButton<String>(
+                  value: dropdownValue_1,
+                  icon: Icon(Icons.arrow_downward),
+                  iconSize: 30,
+                  elevation: 30,
+                  style: TextStyle(color: Colors.grey[900]),
+                  underline: Container(
+                    height: 2,
+                    color: Colors.grey[700],
+                  ),
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownValue_1 = newValue;
+                    });
+                  },
+                  items: <String>[
+                    'English                    ',
+                    'Chinese          ',
+                    'Malaysian        ',
+                    'Japanese         ',
+                    'Cantonese        '
+                  ]
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+                DropdownButton<String>(
+                  value: dropdownValue_2,
+                  icon: Icon(Icons.arrow_downward),
+                  iconSize: 30,
+                  elevation: 30,
+                  style: TextStyle(color: Color(0xFF01579B)),
+                  underline: Container(
+                    height: 2,
+                    color: Colors.blueAccent,
+                  ),
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownValue_2 = newValue;
+                    });
+                  },
+                  items: <String>[
+                'Male                       ',
+                    'Female           '
+                  ]
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+                DropdownButton<String>(
+                  value: dropdownValue_3,
+                  icon: Icon(Icons.arrow_downward),
+                  iconSize: 30,
+                  elevation: 30,
+                  style: TextStyle(color: Color(0xFF01579B)),
+                  underline: Container(
+                    height: 2,
+                    color: Colors.blueAccent,
+                  ),
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownValue_3 = newValue;
+                    });
+                  },
+                  items: <String>[
+                    'Not Talkative    ',
+                    'Medium Talkative ',
+                    'Very Talkative   '
+                  ]
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                )
+              ])
       ),
     );
-  }
-}
-
-
-class Gender {
-  int id;
-  String name;
-  Gender(this.id, this.name);
-  static List<Gender> getGenders(){
-    return <Gender>[
-      Gender(1, "Male"),
-      Gender(2, "Female")
-    ];
-  }
-}
-class Talkative{
-  int id;
-  String name;
-  Talkative(this.id, this.name);
-  static List<Talkative> getTalks(){
-    return <Talkative>[
-      Talkative(1,"Not Talkative"),
-      Talkative(2, "Medium Talkative"),
-      Talkative(2, "Very Talkative"),
-    ];
   }
 }
 

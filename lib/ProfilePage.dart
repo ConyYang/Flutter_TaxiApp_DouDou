@@ -41,6 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return new Scaffold(
         appBar: AppBar(
         title: const Text('Profile'),
+          backgroundColor: Colors.brown[600],
       ),
       body: new ListView(
         children: <Widget>[
@@ -91,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     IconButton(
                       icon: Icon(
                         Icons.camera_alt,
-                        color: Color(0xff476cfb),
+                        color: Colors.orange[900],
                         size: 30.0,
                       ),
                       onPressed: () {
@@ -118,7 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Container(
                         child: IconButton(
                             icon: Icon(Icons.border_color),
-                            color: Color(0xff476cfb),
+                            color: Colors.deepOrange[900],
                             onPressed: (){
                               alert.username(cx);
                             }
@@ -137,14 +138,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     Column(
                       children: <Widget>[
                         IconButton(
-                            icon: Icon(Icons.tag_faces,color: Color(0xff476cfb),),
+                            icon: Icon(Icons.tag_faces,color: Colors.pink[600],),
                             onPressed: () {
                               //print("Pressed on a RaisedButton");
                               Navigator.of(cx).pushNamed('/DropDown'); //route
                             }
                         ),
                         Text('Preference',style: TextStyle(
-                            color: Colors.blueAccent
+                          color: Colors.pink[600],
                         ),)
                       ],
                     ),
@@ -202,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: Container(
                           child: IconButton(
                           icon: Icon(Icons.border_color),
-                          color: Color(0xff476cfb),
+                              color: Colors.deepOrange[900],
                           onPressed: (){
                           alert.Contact(cx);
                           }),),),
@@ -226,7 +227,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Container(
                           child: IconButton(
                               icon: Icon(Icons.border_color),
-                              color: Color(0xff476cfb),
+                              color: Colors.deepOrange[900],
                               onPressed: (){
                                 alert.Email(cx);
                               }),),),
@@ -250,7 +251,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Container(
                         child: IconButton(
                         icon: Icon(Icons.border_color),
-                        color: Color(0xff476cfb),
+                            color: Colors.deepOrange[900],
                         onPressed: (){
                         alert.Location(cx);
                         }),),),
@@ -275,7 +276,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Container(
                         child: IconButton(
                         icon: Icon(Icons.border_color),
-                        color: Color(0xff476cfb),
+                            color: Colors.deepOrange[900],
                         onPressed: (){
                         alert.Nation(cx);
                         }),),),
@@ -303,7 +304,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: new MaterialButton(
                             height: 30.0,
                             minWidth: 50.0,
-                            color: Colors.blue,
+                            color: Colors.pink[900],
                             textColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0)),
@@ -320,7 +321,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 10.0,
                       child:
                       Divider(
-                        color: Colors.lightBlue,
+                        color: Colors.pink[900],
                       ),
                     ),
                   ],
