@@ -4,12 +4,61 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
-class ProfilePage extends StatelessWidget {
-  final String title;
 
-  ProfilePage({Key key, this.title}) : super(key: key);
+class ProfilePage extends StatefulWidget {
   @override
+  _ProfilePageState createState() => _ProfilePageState();
+  
+  
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
+  TextEditingController customController = new TextEditingController();
+  creatAlertDialog(BuildContext context)
+  {
+    return showDialog(context: context, builder: (context)
+    {
+      return AlertDialog(
+        title: Text("Your Name?"),
+        content: TextField(
+          controller: customController,
+        ),
+        actions: <Widget>[
+          MaterialButton(
+            elevation: 5.0,
+            child: Text('Submit'),
+            onPressed:(){
+              Navigator.of(context).pushNamed('/profile');
+            },
+          )
+        ],
+      );
+    });
+  }
+
+  File _image;
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = image;
+      print('Image Path $_image');
+    });
+  }
+
+  Future uploadPic(BuildContext context) async{
+    String fileName = basename(_image.path);
+    StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
+    setState(() {
+      print("Profile Picture uploaded");
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded')));
+    });
+  }
   Widget build(BuildContext cx) {
+    
     return new Scaffold(
       appBar: AppBar(
         title: const Text('DouDou'),
@@ -50,15 +99,34 @@ class ProfilePage extends StatelessWidget {
                             )
                         ),
                       ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+              alignment: Alignment.bottomRight,
+              height: 110.0,
+                  child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(
+                        Icons.camera_alt,
+                        color: Color(0xff476cfb),
+                        size: 30.0,
+                      ),
+                      onPressed: () {
+                        getImage();
+                      },
                     ),
-                  ],)
-                ,
+                  ]
+              )
               ),
 
-
+              SizedBox(height: 12.0,),
               Container(
-                alignment: Alignment.bottomCenter,
-                height: 130.0,
+                alignment: Alignment.center,
+                //height: 130.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -66,24 +134,41 @@ class ProfilePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 28.0
                     ),),
-                    SizedBox(width: 5.0,),
-                    Icon(Icons.check_circle, color: Colors.blueAccent,)
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Container(
+                        child: IconButton(
+                            icon: Icon(Icons.border_color),
+                            color: Color(0xff476cfb),
+                            onPressed: (){
+                              creatAlertDialog(cx);
+                            }
+                        ),
+                      ),
+                    ),
+                    /*FlatButton(
+                        child: Icon(
+                          Icons.border_color,
+                          color: Color(0xff476cfb),
+                          size: 20,
+                        ),
+                      onPressed: (){
+                          creatAlertDialog(cx);
+                      },
+                    )*/
                   ],
                 ),
               ),
-              SizedBox(height: 12.0,),
-              Container(
-                  child: Text('NTU Student', style: TextStyle(fontSize: 18.0),)
-              ),
               SizedBox(height: 10.0,),
               Container(
+                alignment: Alignment.topCenter,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Column(
                       children: <Widget>[
                         IconButton(
-                            icon: Icon(Icons.tag_faces,color: Colors.blueAccent),
+                            icon: Icon(Icons.tag_faces,color: Color(0xff476cfb),),
                             onPressed: () {
                               //print("Pressed on a RaisedButton");
                               Navigator.of(cx).pushNamed('/'); //route
@@ -141,7 +226,18 @@ class ProfilePage extends StatelessWidget {
                       Text('+65 86183957',style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold
-                      ),)
+                      ),),
+                      SizedBox(width: 15.0,),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          child: Icon(
+                            Icons.border_color,
+                            color: Color(0xff476cfb),
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ],),
 
                     SizedBox(height: 10.0,),
@@ -155,7 +251,18 @@ class ProfilePage extends StatelessWidget {
                       Text('yangyubei0218@gmail.com',style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold
-                      ),)
+                      ),),
+                      SizedBox(width: 15.0,),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          child: Icon(
+                            Icons.border_color,
+                            color: Color(0xff476cfb),
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ],),
 
                     SizedBox(height: 10.0,),
@@ -169,7 +276,18 @@ class ProfilePage extends StatelessWidget {
                       Text('NTU',style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold
-                      ),)
+                      ),),
+                      SizedBox(width: 15.0,),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          child: Icon(
+                            Icons.border_color,
+                            color: Color(0xff476cfb),
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ],),
 
 
@@ -184,7 +302,18 @@ class ProfilePage extends StatelessWidget {
                       Text('Singapore',style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold
-                      ),)
+                      ),),
+                      SizedBox(width: 15.0,),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          child: Icon(
+                            Icons.border_color,
+                            color: Color(0xff476cfb),
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ],),
 
 
@@ -199,7 +328,18 @@ class ProfilePage extends StatelessWidget {
                       Text('ChongQing, China',style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold
-                      ),)
+                      ),),
+                      SizedBox(width: 15.0,),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          child: Icon(
+                            Icons.border_color,
+                            color: Color(0xff476cfb),
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ],),
 
 
@@ -266,23 +406,6 @@ class ProfilePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>
           [
-            Container(
-              //padding: EdgeInsets.all(10.0),
-              child:
-              Row(children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.functions, color: Colors.black),
-                  onPressed: (){
-                    Navigator.of(cx).pushNamed('/');
-                  },
-                ),
-                SizedBox(width: 10.0,),
-                Text('Edit Profile',
-                  style: TextStyle(
-                      fontSize: 18.0
-                  ),)
-              ],),),
-
             Container(
               padding: EdgeInsets.all(10.0),
               child:
