@@ -3,6 +3,7 @@ import 'package:singtaxi/main.dart';
 import 'StartPage.dart';
 import 'package:singtaxi/LoginPage.dart';
 import 'package:singtaxi/WelcomePage.dart';
+import 'ProfilePage.dart';
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
   final args = settings.arguments;

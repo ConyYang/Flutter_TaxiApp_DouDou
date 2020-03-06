@@ -362,7 +362,7 @@ class WelcomePage extends StatelessWidget {
   }
 }
 */
-class ProfilePage extends StatelessWidget {
+/*class ProfilePage extends StatelessWidget {
   final String title;
 
   ProfilePage({Key key, this.title}) : super(key: key);
@@ -686,4 +686,4 @@ class ProfilePage extends StatelessWidget {
       },
     );
   }
-}
+}*/
