@@ -4,9 +4,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
-import 'createAlertDialog.dart';
-final alert = createAlertDialog();
+import 'AlertPage.dart';
+AlertPageState alert = new AlertPageState();
+
 class ProfilePage extends StatefulWidget {
+  ProfilePage ({Key key, this.title}) :super(key: key);
+  final String title;
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -34,9 +37,9 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
   Widget build(BuildContext cx) {
-    
+
     return new Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
         title: const Text('DouDou'),
       ),
       body: new ListView(
