@@ -4,39 +4,15 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
-
+import 'createAlertDialog.dart';
+final alert = createAlertDialog();
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
-  
-  
 }
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
-  TextEditingController customController = new TextEditingController();
-  creatAlertDialog(BuildContext context)
-  {
-    return showDialog(context: context, builder: (context)
-    {
-      return AlertDialog(
-        title: Text("Your Name?"),
-        content: TextField(
-          controller: customController,
-        ),
-        actions: <Widget>[
-          MaterialButton(
-            elevation: 5.0,
-            child: Text('Submit'),
-            onPressed:(){
-              Navigator.of(context).pushNamed('/profile');
-            },
-          )
-        ],
-      );
-    });
-  }
-
   File _image;
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -141,7 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             icon: Icon(Icons.border_color),
                             color: Color(0xff476cfb),
                             onPressed: (){
-                              creatAlertDialog(cx);
+                              alert.username(cx);
                             }
                         ),
                       ),
