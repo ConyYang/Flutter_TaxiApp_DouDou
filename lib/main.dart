@@ -362,10 +362,10 @@ class WelcomePage extends StatelessWidget {
   }
 }
 */
-class profilePage extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   final String title;
 
-  profilePage({Key key, this.title}) : super(key: key);
+  ProfilePage({Key key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext cx) {
     return new Scaffold(
