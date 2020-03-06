@@ -122,18 +122,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                     ),
-                    /*FlatButton(
-                        child: Icon(
-                          Icons.border_color,
-                          color: Color(0xff476cfb),
-                          size: 20,
-                        ),
-                      onPressed: (){
-                          creatAlertDialog(cx);
-                      },
-                    )*/
-                  ],
-                ),
+                  ]
+              )
               ),
               SizedBox(height: 10.0,),
               Container(
@@ -204,16 +194,15 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontWeight: FontWeight.bold
                       ),),
                       SizedBox(width: 15.0,),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          child: Icon(
-                            Icons.border_color,
-                            color: Color(0xff476cfb),
-                            size: 20,
-                          ),
-                        ),
-                      ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                          child: Container(
+                          child: IconButton(
+                          icon: Icon(Icons.border_color),
+                          color: Color(0xff476cfb),
+                          onPressed: (){
+                          alert.Contact(cx);
+                          }),),),
                     ],),
 
                     SizedBox(height: 10.0,),
@@ -232,40 +221,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: Container(
-                          child: Icon(
-                            Icons.border_color,
-                            color: Color(0xff476cfb),
-                            size: 20,
-                          ),
-                        ),
-                      ),
+                          child: IconButton(
+                              icon: Icon(Icons.border_color),
+                              color: Color(0xff476cfb),
+                              onPressed: (){
+                                alert.Email(cx);
+                              }),),),
                     ],),
-
-                    SizedBox(height: 10.0,),
-                    Row(children: <Widget>[
-                      Icon(Icons.work),
-                      SizedBox(width: 5.0,),
-                      Text('Study at',style: TextStyle(
-                          fontSize: 18.0
-                      ),),
-                      SizedBox(width: 5.0,),
-                      Text('NTU',style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold
-                      ),),
-                      SizedBox(width: 15.0,),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          child: Icon(
-                            Icons.border_color,
-                            color: Color(0xff476cfb),
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                    ],),
-
 
                     SizedBox(height: 10.0,),
                     Row(children: <Widget>[
@@ -280,16 +242,15 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontWeight: FontWeight.bold
                       ),),
                       SizedBox(width: 15.0,),
-                      Align(
+                        Align(
                         alignment: Alignment.centerRight,
                         child: Container(
-                          child: Icon(
-                            Icons.border_color,
-                            color: Color(0xff476cfb),
-                            size: 20,
-                          ),
-                        ),
-                      ),
+                        child: IconButton(
+                        icon: Icon(Icons.border_color),
+                        color: Color(0xff476cfb),
+                        onPressed: (){
+                        alert.Location(cx);
+                        }),),),
                     ],),
 
 
@@ -306,17 +267,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontWeight: FontWeight.bold
                       ),),
                       SizedBox(width: 15.0,),
-                      Align(
+                        Align(
                         alignment: Alignment.centerRight,
                         child: Container(
-                          child: Icon(
-                            Icons.border_color,
-                            color: Color(0xff476cfb),
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                    ],),
+                        child: IconButton(
+                        icon: Icon(Icons.border_color),
+                        color: Color(0xff476cfb),
+                        onPressed: (){
+                        alert.Nation(cx);
+                        }),),),
+                        ],),
 
 
 

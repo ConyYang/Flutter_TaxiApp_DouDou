@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -33,7 +32,7 @@ Contact(BuildContext context)
   return showDialog(context: context, builder: (context)
   {
     return AlertDialog(
-      title: Text("Your Name?"),
+      title: Text("Your Phone?"),
       content: TextField(
         controller: customController,
       ),
@@ -55,7 +54,7 @@ Email(BuildContext context)
   return showDialog(context: context, builder: (context)
   {
     return AlertDialog(
-      title: Text("Your Name?"),
+      title: Text("Your Email?"),
       content: TextField(
         controller: customController,
       ),
@@ -77,7 +76,7 @@ Location(BuildContext context)
   return showDialog(context: context, builder: (context)
   {
     return AlertDialog(
-      title: Text("Your Name?"),
+      title: Text("Your Location?"),
       content: TextField(
         controller: customController,
       ),
@@ -99,7 +98,7 @@ Nation(BuildContext context)
   return showDialog(context: context, builder: (context)
   {
     return AlertDialog(
-      title: Text("Your Name?"),
+      title: Text("Your Nationality?"),
       content: TextField(
         controller: customController,
       ),
