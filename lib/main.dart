@@ -7,8 +7,6 @@ import 'package:flutter/rendering.dart';
 import 'package:singtaxi/route_generator.dart';
 import 'package:singtaxi/StartPage.dart';
 import 'route_generator.dart';
-import 'LoginPage.dart';
-import 'WelcomePage.dart';
 
 void main() => runApp(MyApp());
 
