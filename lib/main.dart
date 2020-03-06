@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/rendering.dart';
 import 'package:singtaxi/route_generator.dart';
-
+import 'StartPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,10 +20,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
+        home: StartPage()
     );
   }
 }
-class StartPage extends StatelessWidget {
+/*class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -65,7 +66,7 @@ class StartPage extends StatelessWidget {
         )
     );
   }
-}
+}*/
 
 
 class LoginPage extends StatefulWidget {

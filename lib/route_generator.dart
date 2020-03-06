@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/main.dart';
+import 'StartPage.dart';
 
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
