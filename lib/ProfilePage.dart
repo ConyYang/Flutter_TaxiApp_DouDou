@@ -40,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return new Scaffold(
         appBar: AppBar(
-        title: const Text('DouDou'),
+        title: const Text('Profile'),
       ),
       body: new ListView(
         children: <Widget>[
@@ -140,7 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             icon: Icon(Icons.tag_faces,color: Color(0xff476cfb),),
                             onPressed: () {
                               //print("Pressed on a RaisedButton");
-                              Navigator.of(cx).pushNamed('/'); //route
+                              Navigator.of(cx).pushNamed('/DropDown'); //route
                             }
                         ),
                         Text('Preference',style: TextStyle(
@@ -154,7 +154,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             icon: Icon(Icons.star,color: Colors.black),
                             onPressed: () {
                               //print("Pressed on a RaisedButton");
-                              Navigator.of(cx).pushNamed('/'); //route
+                              Navigator.of(cx).pushNamed('/DropDown'); //route
                             }
                         ),
                         Text('Reputation',style: TextStyle(

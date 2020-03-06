@@ -1,92 +1,89 @@
 import 'package:flutter/material.dart';
 
 class DropDownPage extends StatefulWidget {
-  DropDownPage() : super();
-  @override
-  DropDownState createState() => DropDownState();
-}
-
-class Company {
-  int id;
-  String name;
-
-  Company(this.id, this.name);
-
-  static List<Company> getCompanies() {
-    return <Company>[
-      Company(1, 'Apple'),
-      Company(2, 'Google'),
-      Company(3, 'Samsung'),
-      Company(4, 'Sony'),
-      Company(5, 'LG'),
-    ];
-  }
-}
-
-class DropDownState extends State<DropDownPage> {
-  //
-  List<Company> _companies = Company.getCompanies();
-  List<DropdownMenuItem<Company>> _dropdownMenuItems;
-  Company _selectedCompany;
+  DropDownPage({Key key}) : super(key: key);
 
   @override
-  void initState() {
-    _dropdownMenuItems = buildDropdownMenuItems(_companies);
-    _selectedCompany = _dropdownMenuItems[0].value;
-    super.initState();
-  }
-
-  List<DropdownMenuItem<Company>> buildDropdownMenuItems(List companies) {
-    List<DropdownMenuItem<Company>> items = List();
-    for (Company company in companies) {
-      items.add(
-        DropdownMenuItem(
-          value: company,
-          child: Text(company.name),
-        ),
-      );
-    }
-    return items;
-  }
-
-  onChangeDropdownItem(Company selectedCompany) {
-    setState(() {
-      _selectedCompany = selectedCompany;
-    });
-  }
+  _DropDownPageState createState() => _DropDownPageState();
+}
+class _DropDownPageState extends State<DropDownPage> {
+  String dropdownValue = 'English';
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: new Scaffold(
-        appBar: AppBar(
-          title: const Text('DouDou'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Preference",
         ),
-        body: new Container(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("Select a company"),
-                SizedBox(
-                  height: 20.0,
-                ),
-                DropdownButton(
-                  value: _selectedCompany,
-                  items: _dropdownMenuItems,
-                  onChanged: onChangeDropdownItem,
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Text('Selected: ${_selectedCompany.name}'),
-              ],
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            DropdownButton<String>(
+              value: dropdownValue,
+              icon: Icon(Icons.arrow_downward),
+              iconSize: 24,
+              elevation: 16,
+              style: TextStyle(color: Colors.deepPurple),
+              underline: Container(
+                height: 2,
+                color: Colors.deepPurpleAccent,
+              ),
+              onChanged: (String newValue) {
+                setState(() {
+                  dropdownValue = newValue;
+                });
+              },
+              items: <String>[
+                'English',
+                'Chinese',
+                'Malaysian',
+                'Japanese',
+                'Cantonese'
+              ]
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-          ),
+            /*RaisedButton(
+              child: Text("Open Multiselect"),
+              onPressed: () => _showMultiSelect(context),
+            ),*/
+          ],
         ),
       ),
     );
   }
 }
+
+
+class Gender {
+  int id;
+  String name;
+  Gender(this.id, this.name);
+  static List<Gender> getGenders(){
+    return <Gender>[
+      Gender(1, "Male"),
+      Gender(2, "Female")
+    ];
+  }
+}
+class Talkative{
+  int id;
+  String name;
+  Talkative(this.id, this.name);
+  static List<Talkative> getTalks(){
+    return <Talkative>[
+      Talkative(1,"Not Talkative"),
+      Talkative(2, "Medium Talkative"),
+      Talkative(2, "Very Talkative"),
+    ];
+  }
+}
+
