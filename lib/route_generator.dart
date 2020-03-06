@@ -4,6 +4,7 @@ import 'StartPage.dart';
 import 'package:singtaxi/LoginPage.dart';
 import 'package:singtaxi/WelcomePage.dart';
 import 'ProfilePage.dart';
+import 'DropDownPage.dart';
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
   final args = settings.arguments;
@@ -17,6 +18,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => WelcomePage());
     case '/profile':
       return MaterialPageRoute(builder: (_) => ProfilePage());
+    case '/DropDown':
+      return MaterialPageRoute(builder: (_) => DropDownPage());
     default:
       return _errorRoute();
     }
