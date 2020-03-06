@@ -3,11 +3,12 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-import 'package:english_words/english_words.dart';
 import 'package:flutter/rendering.dart';
 import 'package:singtaxi/route_generator.dart';
-import 'StartPage.dart';
+import 'package:singtaxi/StartPage.dart';
+import 'route_generator.dart';
+import 'LoginPage.dart';
+import 'WelcomePage.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
-        home: StartPage()
+        home: Scaffold(
+          appBar: AppBar(title: Text("DouDou")),
+          body: StartPage(),
+        )
     );
   }
 }
@@ -68,7 +72,7 @@ class MyApp extends StatelessWidget {
   }
 }*/
 
-
+/*
 class LoginPage extends StatefulWidget {
   @override
   State createState() => new LoginPageState();
@@ -236,7 +240,8 @@ class LoginPageState extends State<LoginPage>{
         ));
   }
 }
-
+*/
+/*
 class WelcomePage extends StatelessWidget {
   final String title;
 
@@ -356,7 +361,7 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
-
+*/
 class profilePage extends StatelessWidget {
   final String title;
 
