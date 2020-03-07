@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
+  WelcomePage ({Key key, this.title}) :super(key: key);
   final String title;
+  @override
+  _WelcomePageState createState() => _WelcomePageState();
+}
 
-  WelcomePage({Key key, this.title}) : super(key: key);
+class _WelcomePageState extends State<WelcomePage> {
+  //final String title;
+  //WelcomePage({Key key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
