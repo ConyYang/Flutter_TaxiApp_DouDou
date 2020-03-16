@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "176404993513",
+    "firebase_url": "https://doudou-taxi.firebaseio.com",
+    "project_id": "doudou-taxi",
+    "storage_bucket": "doudou-taxi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176404993513:android:3a87a9217da528cdb42778",
+        "android_client_info": {
+          "package_name": "com.AWTF.singtaxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176404993513-5leof5a9crrmfd6tkjn1okcqret3d8sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5ojtLukApkkwLaAjmRpamf25EZRCcNvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176404993513-5leof5a9crrmfd6tkjn1okcqret3d8sk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
