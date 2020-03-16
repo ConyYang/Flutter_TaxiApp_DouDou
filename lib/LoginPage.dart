@@ -84,6 +84,7 @@ class _LoginPageState extends State<LoginPage>{
                               fontFamily: 'Montserrat',
                               decoration: TextDecoration.underline),
                         ),
+                        onTap: (){},
                       ),
                     ),
                     SizedBox(height: 40.0),
