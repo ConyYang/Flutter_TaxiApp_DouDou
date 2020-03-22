@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "175827009791",
+    "firebase_url": "https://doudou-6ed6f.firebaseio.com",
+    "project_id": "doudou-6ed6f",
+    "storage_bucket": "doudou-6ed6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175827009791:android:72c7f8fdfc29dea58d8cca",
+        "android_client_info": {
+          "package_name": "com.AWTF.DouDou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175827009791-etctprnmglv71dbjj72hqgt5mapinadh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk1UBAA7TfqDU0CkqghUB6NC1fNR7frh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175827009791-etctprnmglv71dbjj72hqgt5mapinadh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
