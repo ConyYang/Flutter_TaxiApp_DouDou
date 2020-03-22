@@ -29,13 +29,7 @@ dependencies:
   firebase_storage: 3.1.3
   font_awesome_flutter: ^8.7.0
   image_picker: ^0.5.3+1
-    #flutter_datetime_picker: ^1.2.5
-  datetime_picker_formfield: any
 
-=======
-  fluttertoast: ^3.1.3
-  google_maps_flutter: 0.5.24+1
-  intl: 0.16.1
 
 dev_dependencies:
   flutter_test:
@@ -43,7 +37,8 @@ dev_dependencies:
 
   firebase_auth: ^0.14.0+5
   cloud_firestore: ^0.12.9+4
-  provider: ^4.0.4
+  provider: ^3.1.0
+  flutter_spinkit: "4.0.0"
 
 
 # For information on the generic Dart part of this file, see the
