@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:singtaxi/services/auth.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   const LoginPage ({Key key}) : super(key: key);
@@ -6,6 +8,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage>{
+
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -96,6 +101,39 @@ class _LoginPageState extends State<LoginPage>{
                         shadowColor: Colors.lime[900],
                         color: Colors.lime[800],
                         elevation: 7.0,
+                        child: RaisedButton(
+                            child: Center(
+                              child: Text(
+                                'LOGIN',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Montserrat'),
+                              ),
+                            ),
+                              onPressed: () async {
+                                dynamic result = await _auth.signInAnon();
+                                if (result == null) {
+                                  print('error signing in');
+                                }
+                                else
+                                {
+                                  print('signed in');
+                                  print(result.uid);
+                                }
+                              }
+                        ),
+                      ),
+                    ),
+                    /*SizedBox(height: 40.0),
+                    Container(
+                      height: 40.0,
+                      child: Material(
+
+                        borderRadius: BorderRadius.circular(20.0),
+                        shadowColor: Colors.lime[900],
+                        color: Colors.lime[800],
+                        elevation: 7.0,
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).pushNamed('/Welcome');
@@ -111,7 +149,7 @@ class _LoginPageState extends State<LoginPage>{
                           ),
                         ),
                       ),
-                    ),
+                    ),*/
                     SizedBox(height: 20.0),
                     Container(
                       height: 40.0,

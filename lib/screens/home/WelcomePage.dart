@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:singtaxi/services/auth.dart';
 class WelcomePage extends StatefulWidget {
   WelcomePage ({Key key, this.title}) :super(key: key);
   final String title;
@@ -7,14 +8,26 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+
+  final AuthService _auth = AuthService();
   //final String title;
   //WelcomePage({Key key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown[600],
+        backgroundColor: Colors.brown[400],
         title: const Text('DouDou'),
+        elevation: 0.0,
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('logout'),
+            onPressed: () async {
+              await _auth.signOut();
+            },
+          )
+        ]
 
       ),
       //body: Center(child: Text('My Page!')),

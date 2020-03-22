@@ -4,9 +4,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:singtaxi/screens/authenticate/LoginPage.dart';
 import 'package:singtaxi/route_generator.dart';
 import 'package:singtaxi/StartPage.dart';
+import 'package:singtaxi/screens/wrapper.dart';
+import 'package:singtaxi/services/auth.dart';
 import 'route_generator.dart';
+import 'package:provider/provider.dart';
+import 'package:singtaxi/models/user.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,18 +19,20 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: "DouDou",
-      theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/',
-      onGenerateRoute: RouteGenerator.generateRoute,
-        home: Scaffold(
-          appBar: AppBar(title: Text("DouDou"),
-            backgroundColor: Colors.brown[600],
-          ),
-
-          body: StartPage(),
-        )
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        title: "DouDou",
+        theme: ThemeData(primarySwatch: Colors.blue),
+        initialRoute: '/',
+        onGenerateRoute: RouteGenerator.generateRoute,
+          home: Scaffold(
+            /*appBar: AppBar(title: Text("DouDou"),
+              backgroundColor: Colors.brown[600],
+            ),*/
+            body: Wrapper(),
+          )
+      ),
     );
   }
 }

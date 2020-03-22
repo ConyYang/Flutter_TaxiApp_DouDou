@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/main.dart';
+import 'package:singtaxi/screens/wrapper.dart';
 import 'StartPage.dart';
-import 'package:singtaxi/LoginPage.dart';
-import 'package:singtaxi/WelcomePage.dart';
+import 'package:singtaxi/screens/authenticate/LoginPage.dart';
+import 'package:singtaxi/screens/home/WelcomePage.dart';
 import 'ProfilePage.dart';
 import 'DropDownPage.dart';
 class RouteGenerator{
@@ -12,6 +13,8 @@ class RouteGenerator{
   {
     case '/': //home route
       return MaterialPageRoute(builder: (_) => StartPage());
+    case '/Wrapper':
+          return MaterialPageRoute(builder: (_) => Wrapper());
     case '/Login':
           return MaterialPageRoute(builder: (_) => LoginPage());
     case '/Welcome':
