@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/screens/authenticate/LoginPage.dart';
-import 'package:singtaxi/screens/authenticate/sign_in.dart';
+import 'package:singtaxi/screens/authenticate/register.dart';
 
 class Authenticate extends StatefulWidget {
   @override
@@ -8,10 +8,21 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
+
+  bool showLoginPage = true;
+
+  void toggleView() {
+    setState(() => showLoginPage = !showLoginPage);
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: LoginPage(),
-    );
+      if (showLoginPage){
+        return LoginPage(toggleView: toggleView);
+      } else {
+        return Register(toggleView: toggleView);
+      }
+
   }
 }
