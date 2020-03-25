@@ -126,7 +126,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0)),
                             child: new Text("LogOut"),
-                            onPressed: () {
+                            onPressed: () async {
                               print("Pressed on a RaisedButton");
                               Navigator.of(context).pushNamed('/'); //route
                             },

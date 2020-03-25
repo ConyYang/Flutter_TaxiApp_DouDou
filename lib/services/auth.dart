@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:singtaxi/models/user.dart';
+import 'package:singtaxi/services/database.dart';
 
     class AuthService {
 
@@ -18,6 +19,7 @@ import 'package:singtaxi/models/user.dart';
       }
 
       //sign in anon
+
       Future signInAnon() async {
         try{
           AuthResult result = await _auth.signInAnonymously();
@@ -30,9 +32,43 @@ import 'package:singtaxi/models/user.dart';
 
       }
 
-      //sign in email and pass
 
+
+      //sign in email and pass
+      Future signInWithEmailAndPassword(String email, String password) async {
+        try{
+          AuthResult result = await _auth.signInWithEmailAndPassword(email: email,password :password);
+          FirebaseUser user = result.user ;
+          return _userFromFirebaseUser(user);
+        }catch (e){
+          print(e.toString());
+          return null;
+
+        }
+
+      }
       //reg with email and pass
+
+      Future registerWithEmailAndPassword(String email, String password) async {
+        try{
+          AuthResult result = await _auth.createUserWithEmailAndPassword(email: email,password :password);
+          FirebaseUser user = result.user ;
+
+
+          //create a new coment for the user
+          await DatabaseService(uid: user.uid).updateUserData(false,'New User', 'NILL', 0, 0, false, 'NILL', 'NILL', 'NILL', 'NILL');
+
+
+          return _userFromFirebaseUser(user);
+        }catch (e){
+          print(e.toString());
+          return null;
+
+        }
+
+      }
+
+
 
       //sign out
     Future signOut() async {

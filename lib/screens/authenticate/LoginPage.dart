@@ -1,19 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/services/auth.dart';
+import 'package:singtaxi/shared/Loading.dart';
 
 class LoginPage extends StatefulWidget {
+
+     final Function toggleView;
+     LoginPage({this.toggleView});
+
+
   @override
-  const LoginPage ({Key key}) : super(key: key);
+
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage>{
 
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+  bool loading = false;
+
+//text field state
+
+  String email = '';
+  String password = '';
+  String error ='';
+
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return loading ? Loading() : Scaffold(
         appBar: AppBar(
           title: Text('DouDou'),
           backgroundColor: Colors.brown[600],
@@ -52,9 +67,16 @@ class _LoginPageState extends State<LoginPage>{
             ),
             Container(
                 padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
+               child:Form(
+
+               key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    TextField(
+                    TextFormField(
+                    validator:(val) => val.isEmpty ? 'Enter an Email' : null,
+                      onChanged: (val) {
+                                        setState(() => email = val);
+                                        },
                       decoration: InputDecoration(
                           labelText: 'EMAIL',
                           labelStyle: TextStyle(
@@ -65,7 +87,12 @@ class _LoginPageState extends State<LoginPage>{
                               borderSide: BorderSide(color: Colors.green))),
                     ),
                     SizedBox(height: 20.0),
-                    TextField(
+                    TextFormField(
+                    validator:(val) => val.length < 6 ? 'Enter a passowrd with 6 or more characters' : null,
+                      obscureText: true,
+                      onChanged: (val) {
+                                       setState(() => password = val);
+                                       },
                       decoration: InputDecoration(
                           labelText: 'PASSWORD',
                           labelStyle: TextStyle(
@@ -74,7 +101,7 @@ class _LoginPageState extends State<LoginPage>{
                               color: Colors.grey),
                           focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.green))),
-                      obscureText: true,
+
                     ),
                     SizedBox(height: 5.0),
                     Container(
@@ -89,7 +116,6 @@ class _LoginPageState extends State<LoginPage>{
                               fontFamily: 'Montserrat',
                               decoration: TextDecoration.underline),
                         ),
-                        onTap: (){},
                       ),
                     ),
                     SizedBox(height: 40.0),
@@ -99,7 +125,7 @@ class _LoginPageState extends State<LoginPage>{
 
                         borderRadius: BorderRadius.circular(20.0),
                         shadowColor: Colors.lime[900],
-                        color: Colors.lime[800],
+                        color: Colors.blue[800],
                         elevation: 7.0,
                         child: RaisedButton(
                             child: Center(
@@ -111,20 +137,29 @@ class _LoginPageState extends State<LoginPage>{
                                     fontFamily: 'Montserrat'),
                               ),
                             ),
-                              onPressed: () async {
-                                dynamic result = await _auth.signInAnon();
-                                if (result == null) {
-                                  print('error signing in');
-                                }
-                                else
+                            onPressed: () async {
+                              if (_formKey.currentState.validate()){
+
+                                setState(()=> loading = true);
+
+                                dynamic result = await _auth.signInWithEmailAndPassword(email, password);
+
+                                if(result == null)
                                 {
-                                  print('signed in');
-                                  print(result.uid);
+                                  setState(() =>
+                                  error = 'Sign in Failed, Please try again');
+                                  loading = false;
                                 }
                               }
+                            }
                         ),
                       ),
                     ),
+                    SizedBox(height : 12.00),
+                    Text(
+                      error,
+                      style: TextStyle(color: Colors.red, fontSize: 14.0),),
+
                     /*SizedBox(height: 40.0),
                     Container(
                       height: 40.0,
@@ -181,6 +216,7 @@ class _LoginPageState extends State<LoginPage>{
                     )
                   ],
                 )),
+            ),
             SizedBox(height: 15.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -192,7 +228,8 @@ class _LoginPageState extends State<LoginPage>{
                 SizedBox(width: 5.0),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/');
+                   // Navigator.of(context).pushNamed('/');
+                      widget.toggleView();
                   },
                   child: Text(
                     'Register',
@@ -201,6 +238,7 @@ class _LoginPageState extends State<LoginPage>{
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline),
+
                   ),
                 )
               ],
