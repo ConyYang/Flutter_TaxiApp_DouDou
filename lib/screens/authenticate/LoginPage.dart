@@ -159,32 +159,6 @@ class _LoginPageState extends State<LoginPage>{
                     Text(
                       error,
                       style: TextStyle(color: Colors.red, fontSize: 14.0),),
-
-                    /*SizedBox(height: 40.0),
-                    Container(
-                      height: 40.0,
-                      child: Material(
-
-                        borderRadius: BorderRadius.circular(20.0),
-                        shadowColor: Colors.lime[900],
-                        color: Colors.lime[800],
-                        elevation: 7.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).pushNamed('/Welcome');
-                          },
-                          child: Center(
-                            child: Text(
-                              'LOGIN',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),*/
                     SizedBox(height: 20.0),
                     Container(
                       height: 40.0,
