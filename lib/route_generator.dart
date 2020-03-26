@@ -10,11 +10,10 @@ import 'book/booking.dart';
 import 'book/confirmBook.dart';
 import 'book/DouDouEat.dart';
 import 'book/FreeRides.dart';
-import 'book/HelpScreen.dart';
+import 'AboutUs.dart';
 import 'Payment.dart';
 import 'book/selectdest.dart';
-import 'book/Settings.dart';
-import 'book/YourTrip.dart';
+import 'Settings.dart';
 
 
 class RouteGenerator{
@@ -38,10 +37,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => booking());
     case '/confirmBook':
       return MaterialPageRoute(builder: (_) => confirmbook());
-    case '/Help':
-      return MaterialPageRoute(builder: (_) => HelpScreen());
-    case '/Trip':
-      return MaterialPageRoute(builder: (_) => YourTrip());
+    case '/AboutUs':
+      return MaterialPageRoute(builder: (_) => AboutUs());
     case '/Payment':
       return MaterialPageRoute(builder: (_) => Payment());
     case '/Setting':

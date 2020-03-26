@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-import 'components/back_card_view.dart';
+import 'package:singtaxi/components/provider/card_cvv_provider.dart';
 import 'components/front_card_view.dart';
 import 'components/input_view_pager.dart';
 import 'components/my_appbar.dart';
