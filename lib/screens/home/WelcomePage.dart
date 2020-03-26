@@ -65,7 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/Login');
+                Navigator.of(context).pushNamed('/Book');
               },
             ),
             ListTile(
