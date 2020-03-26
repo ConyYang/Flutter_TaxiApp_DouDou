@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/services/auth.dart';
-import 'package:singtaxi/shared/Loading.dart';
+import 'package:singtaxi/Shared/Loading.dart';
 
 class LoginPage extends StatefulWidget {
 
