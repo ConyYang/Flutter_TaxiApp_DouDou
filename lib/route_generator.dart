@@ -11,7 +11,7 @@ import 'book/confirmBook.dart';
 import 'book/DouDouEat.dart';
 import 'book/FreeRides.dart';
 import 'book/HelpScreen.dart';
-import 'book/Payment.dart';
+import 'Payment.dart';
 import 'book/selectdest.dart';
 import 'book/Settings.dart';
 import 'book/YourTrip.dart';

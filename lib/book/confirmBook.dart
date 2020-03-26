@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'MyDialog.dart';
+import 'package:intl/intl.dart';
 
 class confirmbook extends StatefulWidget {
   @override
@@ -225,35 +226,33 @@ class _confirmState extends State<confirmbook> {
                     new Row(
                       children: <Widget>[
                         new Container(
-                            height: 40.0,
-                            width: 40.0,
+                            height: 50.0,
+                            width: 270.0,
                             margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                            child: Image.asset(
-                              'android/assets/cash.PNG',
-                              height: 40,
-                              width: 40,
-                            )),
+                      child: new FlatButton(
+                        onPressed: () {
+                          Fluttertoast.showToast(
+                              msg:
+                              "Set up Payment Details");
+                          Navigator.pushNamed(context, "/Payment");
+                        },
+                        textColor: Colors.black,
+                        color: Colors.white,
+                        child: new Text("Select payment Type",
+                        textAlign: TextAlign.center,
+                        style: new TextStyle(
+                          color: Colors.black,
+                          backgroundColor: Colors.white,
+                          fontSize: 18.0,
+                        ),),
+                      ),
+                        ),
                         new Container(
                             color: Colors.white,
                             height: 60.0,
-                            width: 60.0,
+                            width: 30.0,
 //                          alignment: Alignment.centerRight,
                             margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                            child: Padding(
-                                padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                                child: Text("Cash ",
-                                    textAlign: TextAlign.left,
-                                    style: new TextStyle(
-                                      color: Colors.black,
-                                      backgroundColor: Colors.white,
-                                      fontSize: 18.0,
-                                    )))),
-                        new Container(
-                            color: Colors.white,
-                            height: 60.0,
-                            width: 60.0,
-//                          alignment: Alignment.centerRight,
-                            margin: EdgeInsets.fromLTRB(175, 0, 0, 0),
                             child: Padding(
                                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                 child: Icon(
@@ -279,9 +278,9 @@ class _confirmState extends State<confirmbook> {
                                 Navigator.pushNamed(context, "/Home");
                               },
                               textColor: Colors.white,
-                              color: Colors.black,
+                              color: Colors.deepOrange[800],
                               child: new Text(
-                                "CONFIRM UBER",
+                                "CONFIRM DouDou",
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     fontSize: 16.0, color: Colors.white),
@@ -302,10 +301,10 @@ class _confirmState extends State<confirmbook> {
                                   textColor: Colors.black,
                                   color: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.grey[400])),
                                   child: new Icon(
                                     Icons.watch_later,
-                                    color: Colors.black,
+                                    color: Colors.lime[800],
                                   ),
                                 )))
                       ],
