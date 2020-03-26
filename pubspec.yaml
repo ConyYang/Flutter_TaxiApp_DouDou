@@ -73,10 +73,6 @@ flutter:
    - android/assets/merlion.jpeg
    - android/assets/cony.jpg
    - android/assets/UserPreference.jpg
-   - android/assets/huang.jpeg
-   - android/assets/lin.jpg
-   - android/assets/luo.jpg
-   - android/assets/cash.PNG
    #- images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
