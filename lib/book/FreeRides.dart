@@ -5,12 +5,13 @@ class FreeRides extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Free Rides"),
+        backgroundColor: Colors.brown[600],
       ),
       body: new Column(
         children: <Widget>[
           new Row(children: <Widget>[
             new Container(
-                width: 360.0,
+                width: 300.0,
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(20, 30, 0, 0),
                     child: new Text("Send yours friends",
@@ -29,7 +30,7 @@ class FreeRides extends StatelessWidget {
             new Container(
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
-                    child: new Text("Share the Uber love and give friends free",
+                    child: new Text("Share the DouDou love and give friends free",
                         style:
                         new TextStyle(color: Colors.grey, fontSize: 18.0))))
           ]),
@@ -38,7 +39,7 @@ class FreeRides extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                     //TODO: Replase Rs with ruppes
-                    child: new Text("rides to try Uber,worth up to Rs 25 each!",
+                    child: new Text("rides to try DouDou,worth up to 25SGD each!",
                         style:
                         new TextStyle(color: Colors.grey, fontSize: 18.0))))
           ]),
@@ -48,16 +49,16 @@ class FreeRides extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(20, 15, 0, 0),
                     child: new Text("How Invites Works",
                         style:
-                        new TextStyle(color: Colors.blue, fontSize: 16.0))))
+                        new TextStyle(color: Colors.orangeAccent[400], fontSize: 16.0))))
           ]),
           new Row(children: <Widget>[
             new Container(
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: new Image.asset(
-                      'assets/images/friend.jpg',
+                      'android/assets/friend.jpg',
                       width: 350,
-                      height: 280,
+                      height: 200,
                     )))
           ]),
           new Row(children: <Widget>[
@@ -66,7 +67,7 @@ class FreeRides extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                     child: new Text("Share Your Invite Code",
                         style:
-                        new TextStyle(color: Colors.grey, fontSize: 16.0))))
+                        new TextStyle(color: Colors.orangeAccent[300], fontSize: 16.0))))
           ]),
           new Row(children: <Widget>[
             new Container(
@@ -78,7 +79,7 @@ class FreeRides extends StatelessWidget {
                   new Text(
                     "wmp98it                                             ",
                     style: new TextStyle(
-                      color: Colors.grey,
+                      color: Colors.black,
                       fontSize: 18.0,
                     ),
                   ),
@@ -105,7 +106,7 @@ class FreeRides extends StatelessWidget {
 //                                "I'm giving you a free ride on the Uber app (up to Rs. 25). To accept, use code 'wmp9it' to sign up. Enjoy! Details https://www.uber.com/invite/wmp9it");
                       },
                       textColor: Colors.white,
-                      color: Colors.black,
+                      color: Colors.green[600],
                       child: new Text(
                         "WHATSAPP",
                         textAlign: TextAlign.center,
