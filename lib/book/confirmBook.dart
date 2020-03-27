@@ -184,7 +184,7 @@ class _confirmState extends State<confirmbook> {
                           color: Colors.white,
                           height: 60.0,
                           width: 120.0,
-//                          alignment: Alignment.centerRight,
+                          alignment: Alignment.centerRight,
                           child: Column(
                             children: <Widget>[
                               Padding(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'MyDialog.dart';
-import 'booking.dart';
+
 
 class selectDest extends StatefulWidget {
   @override
@@ -17,7 +16,7 @@ class _MyAppState1 extends State<selectDest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.white,
         appBar: AppBar(
             backgroundColor: Colors.brown[600],
             title: Text(
@@ -36,7 +35,7 @@ class _MyAppState1 extends State<selectDest> {
         body: Stack(children: <Widget>[
           Container(
               height: 120,
-              width: 360,
+              width: 370,
               color: Colors.white,
               alignment: Alignment.topCenter,
               child: Column(
@@ -88,15 +87,15 @@ class _MyAppState1 extends State<selectDest> {
               )),
           Center(
               child: new Container(
-            child: Image.asset(
-              'assets/taxi.png',
-              height: 90,
-              width: 40,
-            ),
-          )),
+                child: Image.asset(
+                  'android/assets/taxi.png',
+                  height: 90,
+                  width: 40,
+                ),
+              )),
           Center(
             child: new Container(
-              color: Colors.grey[400],
+              //color: Colors.grey[400],
               width: 235,
               height: 50,
               margin: EdgeInsets.fromLTRB(0, 550, 55, 15),
