@@ -7,8 +7,8 @@ class forgetpassword extends StatefulWidget {
   @override
   _forgetpasswordState createState() => _forgetpasswordState();
 }
-final AuthService _auth = AuthService();
-final _formKey = GlobalKey<FormState>();
+
+
 bool loading = false;
 String email = '';
 String error ='';
@@ -57,7 +57,6 @@ class _forgetpasswordState extends State<forgetpassword> {
             Container(
               padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
               child:Form(
-                  key:_formKey,
                   child: Column(
                     children: <Widget>[
                       TextFormField(
@@ -95,11 +94,9 @@ class _forgetpasswordState extends State<forgetpassword> {
                                 ),
                               ),
                               onPressed: () async {
-                                if (_formKey.currentState.validate()){
-
                                   setState(()=> loading = true);
 
-                                  dynamic result = await _auth.resetPassword(email);
+                                  dynamic result = await AuthService().resetPassword(email);
 
                                   if(result == null)
                                   {
@@ -114,7 +111,7 @@ class _forgetpasswordState extends State<forgetpassword> {
                                       loading = false;
                                     }
 
-                                }
+
                               }
                           ),
                         ),
@@ -130,33 +127,7 @@ class _forgetpasswordState extends State<forgetpassword> {
 
                   )     ),
             ),
-            SizedBox(height: 15.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'I Remembered my password',
-                  style: TextStyle(fontFamily: 'Montserrat'),
-                ),
-                SizedBox(width: 5.0),
-                InkWell(
-                  onTap: () {
-                    // Navigator.of(context).pushNamed('/');
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/Login');
-                  },
-                  child: Text(
-                    'SignIn',
-                    style: TextStyle(
-                        color: Colors.orangeAccent[400],
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline),
 
-                  ),
-                )
-              ],
-            )
           ],
         ));
   }

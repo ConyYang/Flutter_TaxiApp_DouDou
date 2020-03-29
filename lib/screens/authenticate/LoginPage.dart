@@ -110,8 +110,6 @@ class _LoginPageState extends State<LoginPage>{
                       padding: EdgeInsets.only(top: 15.0, left: 20.0),
                       child: InkWell(
                         onTap: () {
-                          // Navigator.of(context).pushNamed('/');
-                          Navigator.of(context).pop();
                           Navigator.of(context).pushNamed('/Forget');
                         },
                         child: Text(

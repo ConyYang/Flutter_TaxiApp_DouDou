@@ -77,7 +77,7 @@ import 'package:singtaxi/services/database.dart';
       Future  resetPassword(String email) async {
         try {
           await _auth.sendPasswordResetEmail(email: email);
-          return '1';
+          return 1;
         } catch (e) {
           print(e.toString());
           return null;
