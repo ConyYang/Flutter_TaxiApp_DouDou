@@ -17,6 +17,7 @@ bool loading = false;
 // text field state
 String email = '';
 String password = '';
+String cpassword='';
 String error ='';
 
 class _RegisterState extends State<Register> {
@@ -96,6 +97,25 @@ class _RegisterState extends State<Register> {
                               borderSide: BorderSide(color: Colors.green))),
 
                     ),
+
+                    SizedBox(height: 20.0),
+                    TextFormField(
+                      validator: (val) => val.length < 6 ? 'Please confirm your password' : null,
+                      obscureText: true,
+                      onChanged: (val) {
+                        setState(() => cpassword = val);
+                      },
+                      decoration: InputDecoration(
+                          labelText: 'CONFIRM PASSWORD',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green))),
+
+                    ),
+
                     SizedBox(height: 40.0),
                     Container(
                       height: 40.0,
@@ -116,16 +136,26 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                             onPressed: () async {
-                              if (_formKey.currentState.validate()) {
-                                setState(() => loading = true );
-                                dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                              if (password == cpassword) {
+                                if (_formKey.currentState.validate()) {
+                                  setState(() => loading = true);
+                                  dynamic result = await _auth
+                                      .registerWithEmailAndPassword(
+                                      email, password);
 
-                                if (result == null) {
-                                  setState(() {
-                                    error = 'Register Failed Try Again';
-                                    loading = false;
-                                  });
+                                  if (result == null) {
+                                    setState(() {
+                                      error = 'Register Failed Try Again';
+                                      loading = false;
+                                    });
+                                  }
                                 }
+                              }
+                              else if (password!=cpassword){
+                                setState(() {
+                                  error = 'Please reconfirm your password';
+                                  loading = false;
+                                });
                               }
                             }
                         ),

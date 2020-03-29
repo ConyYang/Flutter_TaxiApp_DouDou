@@ -39,6 +39,7 @@ import 'package:singtaxi/services/database.dart';
         try{
           AuthResult result = await _auth.signInWithEmailAndPassword(email: email,password :password);
           FirebaseUser user = result.user ;
+          if (user.isEmailVerified)
           return _userFromFirebaseUser(user);
         }catch (e){
           print(e.toString());
@@ -54,18 +55,27 @@ import 'package:singtaxi/services/database.dart';
           AuthResult result = await _auth.createUserWithEmailAndPassword(email: email,password :password);
           FirebaseUser user = result.user ;
 
-
+          await user.sendEmailVerification();
           //create a new coment for the user
-          await DatabaseService(uid: user.uid).updateUserData(false,'New User', 'NILL', 0, 0, false, 'NILL', 'NILL', 'NILL', 'NILL');
+          await DatabaseService(uid: user.uid).updateUserData(false,'New User', 'NILL', 0, 0, false, email, 'NILL', 'NILL', 'NILL');
+
 
 
           return _userFromFirebaseUser(user);
         }catch (e){
+          print('An Error occured while trying to send email verification');
           print(e.toString());
           return null;
 
         }
 
+      }
+
+
+//reset password
+      Future  resetPassword(String email) async {
+        await _auth.sendPasswordResetEmail(email: email);
+        return null;
       }
 
 
