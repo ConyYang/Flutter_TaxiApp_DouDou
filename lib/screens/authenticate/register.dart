@@ -136,30 +136,32 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                             onPressed: () async {
-                              if (password == cpassword) {
-                                if (_formKey.currentState.validate()) {
-                                  setState(() => loading = true);
-                                  dynamic result = await _auth
-                                      .registerWithEmailAndPassword(
-                                      email, password);
+                              if (_formKey.currentState.validate() && password==cpassword) {
+                                setState(() => loading = true );
+                                dynamic result = await _auth.registerWithEmailAndPassword(email, password);
 
-                                  if (result == null) {
-                                    setState(() {
+                                if (result == null) {
+                                  setState(() {
+
+                                    if (password==cpassword) {
                                       error = 'Register Failed Try Again';
-                                      loading = false;
-                                    });
-                                  }
+                                    }
+                                    else
+                                      {
+                                        error = 'Please reconfirm password';
+                                      }
+                                    loading = false;
+
+                                  });
                                 }
-                              }
-                              else if (password!=cpassword){
-                                setState(() {
-                                  error = 'Please reconfirm your password';
-                                  loading = false;
-                                });
+                                else{
+                                  widget.toggleView();
+                                }
                               }
                             }
                         ),
                       ),
+
                     ),
                     SizedBox(height: 12.00),
                     Text(

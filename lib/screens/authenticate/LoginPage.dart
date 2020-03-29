@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/Shared/Loading.dart';
 import 'package:singtaxi/services/auth.dart';
+import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
 
 class LoginPage extends StatefulWidget {
 
@@ -108,6 +109,11 @@ class _LoginPageState extends State<LoginPage>{
                       alignment: Alignment(1.0, 0.0),
                       padding: EdgeInsets.only(top: 15.0, left: 20.0),
                       child: InkWell(
+                        onTap: () {
+                          // Navigator.of(context).pushNamed('/');
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/Forget');
+                        },
                         child: Text(
                           'Forgot Password',
                           style: TextStyle(
@@ -116,6 +122,7 @@ class _LoginPageState extends State<LoginPage>{
                               fontFamily: 'Montserrat',
                               decoration: TextDecoration.underline),
                         ),
+
                       ),
                     ),
                     SizedBox(height: 40.0),

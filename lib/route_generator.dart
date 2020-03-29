@@ -14,6 +14,7 @@ import 'AboutUs.dart';
 import 'Payment.dart';
 import 'book/selectdest.dart';
 import 'Settings.dart';
+import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
 
 
 class RouteGenerator{
@@ -51,6 +52,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => booking());
    /* case '/Food':
       return MaterialPageRoute(builder: (_) => DouDouEat());*/
+    case '/Forget':
+      return MaterialPageRoute(builder: (_) => forgetpassword());
     default:
       return _errorRoute();
     }
