@@ -3,7 +3,7 @@ import 'package:singtaxi/services/auth.dart';
 import 'package:singtaxi/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:singtaxi/screens/home/user_data.dart';
+import 'package:singtaxi/screens/home/profile_list.dart';
 import 'package:singtaxi/models/profile.dart';
 
 class Home extends StatelessWidget {
@@ -12,8 +12,11 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+
+    return StreamProvider<List<Profile>>.value(
       value: DatabaseService().profile,
+
+
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
@@ -30,7 +33,7 @@ class Home extends StatelessWidget {
            )
           ],
         ),
-        body: user_data(),
+        body: Profilelist(),
         //child: Text('home'),
       ),
     );

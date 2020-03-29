@@ -29,10 +29,10 @@ class DatabaseService{
   }
 
   //userdata form snapshot
-  List<profile> _profileListFromSnapshot(QuerySnapshot snapshot){
+  List<Profile> _profileListFromSnapshot(QuerySnapshot snapshot){
 
     return snapshot.documents.map((doc){
-      return profile(
+      return Profile(
           name: doc.data['name'] ?? '',
           email: doc.data['email'] ?? ''
 
@@ -47,7 +47,7 @@ class DatabaseService{
 
 
 //get brews stream
-Stream<List<profile>> get userdata {
+Stream<List<Profile>> get profile {
     return userProfile.snapshots().map(_profileListFromSnapshot);
 }
 

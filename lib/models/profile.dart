@@ -1,4 +1,4 @@
-class profile {
+class Profile {
 
   final bool driver;
   final String name;
@@ -12,7 +12,7 @@ class profile {
   final String payment;
   final String language;
 
-  profile({ this.driver, this.name,this.talkative,this.number,this.rating, this.gender, this. email, this. license, this.carplate, this.payment, this.language});
+  Profile({ this.driver, this.name,this.talkative,this.number,this.rating, this.gender, this. email, this. license, this.carplate, this.payment, this.language});
 
 
 
