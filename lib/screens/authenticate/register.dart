@@ -17,6 +17,7 @@ bool loading = false;
 // text field state
 String email = '';
 String password = '';
+String cpassword='';
 String error ='';
 
 class _RegisterState extends State<Register> {
@@ -96,6 +97,25 @@ class _RegisterState extends State<Register> {
                               borderSide: BorderSide(color: Colors.green))),
 
                     ),
+
+                    SizedBox(height: 20.0),
+                    TextFormField(
+                      validator: (val) => val.length < 6 ? 'Please confirm your password' : null,
+                      obscureText: true,
+                      onChanged: (val) {
+                        setState(() => cpassword = val);
+                      },
+                      decoration: InputDecoration(
+                          labelText: 'CONFIRM PASSWORD',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green))),
+
+                    ),
+
                     SizedBox(height: 40.0),
                     Container(
                       height: 40.0,
@@ -116,20 +136,32 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                             onPressed: () async {
-                              if (_formKey.currentState.validate()) {
+                              if (_formKey.currentState.validate() && password==cpassword) {
                                 setState(() => loading = true );
                                 dynamic result = await _auth.registerWithEmailAndPassword(email, password);
 
                                 if (result == null) {
                                   setState(() {
-                                    error = 'Register Failed Try Again';
+
+                                    if (password==cpassword) {
+                                      error = 'Register Failed Try Again';
+                                    }
+                                    else
+                                      {
+                                        error = 'Please reconfirm password';
+                                      }
                                     loading = false;
+
                                   });
+                                }
+                                else{
+                                  widget.toggleView();
                                 }
                               }
                             }
                         ),
                       ),
+
                     ),
                     SizedBox(height: 12.00),
                     Text(

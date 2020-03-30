@@ -189,7 +189,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Row(children: <Widget>[
                       Icon(Icons.phone_android),
                       SizedBox(width: 5.0,),
-                      Text('Cantact',style: TextStyle(
+                      Text('Contact',style: TextStyle(
                           fontSize: 18.0
                       ),),
                       SizedBox(width: 5.0,),

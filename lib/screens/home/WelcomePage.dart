@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/services/auth.dart';
+import 'package:singtaxi/services/database.dart';
 class WelcomePage extends StatefulWidget {
   WelcomePage ({Key key, this.title}) :super(key: key);
   final String title;
@@ -74,7 +75,7 @@ class _WelcomePageState extends State<WelcomePage> {
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/Login');
+                Navigator.of(context).pushNamed('/Setting');
               },
             ),
             ListTile(
@@ -83,7 +84,7 @@ class _WelcomePageState extends State<WelcomePage> {
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/Login');
+                Navigator.of(context).pushNamed('/AboutUs');
               },
             )
           ],

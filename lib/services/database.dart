@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+import 'package:singtaxi/models/profile.dart';
 
 
 class DatabaseService{
@@ -27,6 +27,33 @@ class DatabaseService{
 
     });
   }
+
+  //userdata form snapshot
+  List<Profile> _profileListFromSnapshot(QuerySnapshot snapshot){
+
+    return snapshot.documents.map((doc){
+      return Profile(
+          name: doc.data['name'] ?? '',
+          email: doc.data['email'] ?? ''
+
+
+      );
+
+
+
+    }).toList();
+
+  }
+
+
+//get brews stream
+Stream<List<Profile>> get profile {
+    return userProfile.snapshots().map(_profileListFromSnapshot);
+}
+
+
+
+
 
 
   }
