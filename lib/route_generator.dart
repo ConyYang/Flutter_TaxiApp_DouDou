@@ -8,7 +8,7 @@ import 'ProfilePage.dart';
 import 'DropDownPage.dart';
 import 'book/booking.dart';
 import 'book/confirmBook.dart';
-import 'book/DouDouEat.dart';
+import 'doudouEat.dart';
 import 'book/FreeRides.dart';
 import 'AboutUs.dart';
 import 'Payment.dart';
@@ -50,8 +50,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => selectDest());
     case '/Home':
       return MaterialPageRoute(builder: (_) => booking());
-   /* case '/Food':
-      return MaterialPageRoute(builder: (_) => DouDouEat());*/
+    case '/Food':
+      return MaterialPageRoute(builder: (_) => DouDouEat());
     case '/Forget':
       return MaterialPageRoute(builder: (_) => forgetpassword());
     default:
