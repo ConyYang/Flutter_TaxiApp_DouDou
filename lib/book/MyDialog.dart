@@ -39,7 +39,7 @@ class _MyDialogState extends State<MyDialog> {
                           "Schedule a Ride",
                           textAlign: TextAlign.center,
                           style: new TextStyle(
-                              fontSize: 24.0, color: Colors.black),
+                              fontSize: 28.0, color: Colors.orangeAccent[700]),
                         )),
                     new Padding(
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -92,9 +92,6 @@ class _MyDialogState extends State<MyDialog> {
                               context: context,
                               initialTime: TimeOfDay.now(),
                             ));
-
-//
-
                             setState(() {
                               var _timetmp = TimeOfDay(
                                   hour: pick.hour, minute: pick.minute);
@@ -106,7 +103,6 @@ class _MyDialogState extends State<MyDialog> {
                                   _timetmp.hour,
                                   _timetmp.minute);
                               timet = DateFormat("jm").format(selectedTime);
-
                               //'${pick.weekday}, ${pick.month} ${pick.day}';
                             });
                             print("Date is " + _date);
@@ -120,7 +116,7 @@ class _MyDialogState extends State<MyDialog> {
                         )),
                     Container(
                         margin: EdgeInsets.fromLTRB(0, 10, 0, 15),
-                        color: Colors.black,
+                        color: Colors.brown[600],
                         width: 350,
                         height: 50,
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 15),
@@ -130,7 +126,7 @@ class _MyDialogState extends State<MyDialog> {
                             Navigator.pop(context);
                           },
                           textColor: Colors.white,
-                          color: Colors.black,
+                          color: Colors.brown[600],
                           child: new Text(
                             "SET PICKUP TIME",
                             textAlign: TextAlign.center,

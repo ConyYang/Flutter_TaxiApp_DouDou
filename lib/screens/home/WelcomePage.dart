@@ -22,8 +22,12 @@ class _WelcomePageState extends State<WelcomePage> {
         elevation: 0.0,
         actions: <Widget>[
           FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('logout'),
+            icon: Icon(Icons.person, color: Colors.white),
+            label: Text('logout',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                )),
             onPressed: () async {
               await _auth.signOut();
             },
@@ -61,12 +65,21 @@ class _WelcomePageState extends State<WelcomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.functions),
+              leading: Icon(Icons.directions_car),
               title: Text('Booking'),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).pushNamed('/Book');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.monetization_on),
+              title: Text('Free Rides'),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/FreeRides');
               },
             ),
             ListTile(
@@ -99,46 +112,6 @@ class _WelcomePageState extends State<WelcomePage> {
             //color: Colors.blueGrey,
             //colorBlendMode: BlendMode.darken,
           ),
-
-          new Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              new Form(
-                child: new Theme(
-                    data: ThemeData(
-                        brightness: Brightness.dark,
-                        primarySwatch: Colors.teal,
-                        inputDecorationTheme: new InputDecorationTheme(
-                            labelStyle: new TextStyle(
-                                color: Colors.white, fontSize: 10.0))),
-                    child: new Container(
-                      padding: const EdgeInsets.all(10.0),
-                      child: new Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 40.0),
-                          ),
-                          new MaterialButton(
-                            height: 20.0,
-                            minWidth: 50.0,
-                            color: Colors.white,
-                            textColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            child: new Text("LogOut"),
-                            onPressed: () async {
-                              print("Pressed on a RaisedButton");
-                              Navigator.of(context).pushNamed('/'); //route
-                            },
-                            splashColor: Colors.yellowAccent,
-                          ),
-                        ],
-                      ),
-                    )),
-              ),
-            ],
-          )
         ],
       ),
     );

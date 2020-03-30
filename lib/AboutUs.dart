@@ -5,6 +5,7 @@ class AboutUs extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Help"),
+        backgroundColor: Colors.brown[600],
       ),
       body: new Column(
         children: <Widget>[
@@ -12,7 +13,7 @@ class AboutUs extends StatelessWidget {
             new Container(
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(20, 30, 0, 0),
-                    child: new Text("All Topics",
+                    child: new Text("What do you want to know about us",
                         style:
                         new TextStyle(color: Colors.grey, fontSize: 14.0))))
           ]),

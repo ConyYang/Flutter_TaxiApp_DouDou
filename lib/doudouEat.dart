@@ -14,7 +14,8 @@ class DouDouEat extends StatelessWidget {
             Icons.fastfood,
             color: Colors.green,
             size: 200,
-          )),
+          ),
+      ),
     );
   }
 }
