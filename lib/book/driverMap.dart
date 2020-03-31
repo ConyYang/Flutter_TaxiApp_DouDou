@@ -28,7 +28,7 @@ class driverMapState extends State<driverMap> {
         title: Text("Select Driver"),
         actions: <Widget>[
           IconButton(
-              icon: Icon(FontAwesomeIcons.search),
+              icon: Icon(FontAwesomeIcons.borderAll),
               onPressed: () {
                 Navigator.of(context).pushNamed('/confirmBook');
               }),
@@ -72,11 +72,11 @@ class driverMapState extends State<driverMap> {
 
   Future<void> _minus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(1.3462006,103.6793612), zoom: zoomVal)));
   }
   Future<void> _plus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(1.3462006,103.6793612), zoom: zoomVal)));
   }
 
 

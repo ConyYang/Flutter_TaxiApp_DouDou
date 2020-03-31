@@ -16,6 +16,7 @@ import 'book/selectdest.dart';
 import 'Settings.dart';
 import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
 import 'book/driverMap.dart';
+import 'book/using_dialog.dart';
 
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
@@ -50,6 +51,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => selectDest());
     case '/driverMap':
       return MaterialPageRoute(builder: (_) => driverMap());
+    case '/selectDriver':
+      return MaterialPageRoute(builder: (_) => UsingDialog());
     case '/Home':
       return MaterialPageRoute(builder: (_) => booking());
     case '/Food':
