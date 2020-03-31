@@ -74,6 +74,15 @@ class _WelcomePageState extends State<WelcomePage> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.speaker_notes),
+              title: Text('Remark'),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/TripRate');
+              },
+            ),
+            ListTile(
               leading: Icon(Icons.monetization_on),
               title: Text('Free Rides'),
               trailing: Icon(Icons.arrow_forward),

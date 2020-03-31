@@ -1,17 +1,66 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
+import 'map_request_2.dart';
 
-class selectDest extends StatefulWidget {
+const String apiKey = "AIzaSyAZmDfNcXd5dgoSDKNKKNAKtifBhfoeYu0";
+const double CAMERA_ZOOM = 13;
+const double CAMERA_TILT = 0;
+const double CAMERA_BEARING = 30;
+const LatLng DEST_LOCATION = LatLng(1.3373913, 103.6981086);
+
+class SelectDest extends StatefulWidget {
   @override
   _MyAppState1 createState() => _MyAppState1();
 }
 
-class _MyAppState1 extends State<selectDest> {
-  GoogleMapController myMapController;
+class _MyAppState1 extends State<SelectDest> {
+  Completer<GoogleMapController> _completer = Completer();
   final Set<Marker> _markers = new Set();
-  static const LatLng _mainLocation = const LatLng(1.3462006,103.6793612);
+  final Set<Polyline> _polyLines = new Set();
+  GoogleMapsServices _googleMapsServices = GoogleMapsServices();
+
+  Set<Polyline> get polyLines => _polyLines;
+  static LatLng latLng;
+  LocationData currentLocation;
+
+  @override
+  void initState() {
+    getLocation();
+    super.initState();
+  }
+
+  getLocation() async {
+    var location = new Location();
+    location.onLocationChanged().listen(( currentLocation) {
+      setState(() {
+        latLng =  LatLng(currentLocation.latitude, currentLocation.longitude);
+      });
+      print(location);
+      addMarker(latLng, "Init_position");
+    });
+  }
+
+  addMarker(LatLng latLng, String name) async {
+    setState(() {
+      _markers.add(Marker(
+        markerId: MarkerId(name),
+        position: latLng,
+        icon: BitmapDescriptor.defaultMarker,
+      ));
+    });
+  }
+
+  void handleOnPress() async {
+    String route = await _googleMapsServices.getRouteCoordinates(
+        apiKey, latLng, DEST_LOCATION);
+    _polyLines.add(_googleMapsServices.createRoute(route, DEST_LOCATION));
+    addMarker(DEST_LOCATION, "Destination");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +77,8 @@ class _MyAppState1 extends State<selectDest> {
             color: Colors.lightGreen,
           ),
           onPressed: () {
-            Fluttertoast.showToast(msg: "Location Click");
+            Fluttertoast.showToast(msg: "Display Route");
+            handleOnPress();
           },
           backgroundColor: Colors.white,
         ),
@@ -50,7 +100,7 @@ class _MyAppState1 extends State<selectDest> {
                             padding: EdgeInsets.fromLTRB(0, 10, 20, 0),
                             child: new TextField(
                               decoration: InputDecoration(
-                                  hintText: "Nanyang Avenue 24",
+                                  hintText: "Current Location",
                                   icon: Icon(Icons.add_location, color: Colors.greenAccent,)),
                             ))),
                     Row(children: <Widget>[
@@ -74,25 +124,17 @@ class _MyAppState1 extends State<selectDest> {
               padding: EdgeInsets.fromLTRB(0, 120, 0, 0),
               height: 700,
               child: GoogleMap(
+                polylines: polyLines,
+                markers: _markers,
                 initialCameraPosition: CameraPosition(
-                  target: _mainLocation,
+                  target: latLng,
                   zoom: 15.0,
                 ),
                 mapType: MapType.normal,
-                onMapCreated: (controller) {
-                  setState(() {
-                    myMapController = controller;
-                  });
+                onMapCreated: (GoogleMapController controller) {
+                  _completer.complete(controller);
                 },
               )),
-//          Center(
-//              child: new Container(
-//                child: Image.asset(
-//                  'android/assets/taxi.png',
-//                  height: 90,
-//                  width: 40,
-//                ),
-//              )),
           Center(
             child: new Container(
               //color: Colors.grey[400],
@@ -122,8 +164,8 @@ class _MyAppState1 extends State<selectDest> {
     setState(() {
       _markers.add(Marker(
         // This marker id can be anything that uniquely identifies each marker.
-        markerId: MarkerId(_mainLocation.toString()),
-        position: _mainLocation,
+        markerId: MarkerId(latLng.toString()),
+        position: latLng,
         icon: BitmapDescriptor.defaultMarker, //(,"assets/images/taxi.png"),
       ));
     });
