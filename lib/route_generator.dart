@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/RateRemark/tripRate.dart';
-import 'package:singtaxi/YourTrip.dart';
+import 'package:singtaxi/yourTrip/YourTrip.dart';
 import 'package:singtaxi/main.dart';
 import 'package:singtaxi/screens/wrapper.dart';
 import 'StartPage.dart';
@@ -51,7 +51,7 @@ class RouteGenerator{
     case '/FreeRides':
       return MaterialPageRoute(builder: (_) => FreeRides());
     case '/SelectDest':
-      return MaterialPageRoute(builder: (_) => selectDest());
+      return MaterialPageRoute(builder: (_) => SelectDest());
     case '/driverMap':
       return MaterialPageRoute(builder: (_) => driverMap());
     case '/selectDriver':
