@@ -30,7 +30,8 @@ class driverMapState extends State<driverMap> {
           IconButton(
               icon: Icon(FontAwesomeIcons.borderAll),
               onPressed: () {
-                Navigator.of(context).pushNamed('/confirmBook');
+                Navigator.of(context)
+                    .pushReplacementNamed('/confirmBook');
               }),
         ],
       ),
@@ -272,7 +273,7 @@ class driverMapState extends State<driverMap> {
       width: MediaQuery.of(context).size.width,
       child: GoogleMap(
         mapType: MapType.normal,
-        initialCameraPosition:  CameraPosition(target: LatLng(40.712776, -74.005974), zoom: 12),
+        initialCameraPosition:  CameraPosition(target: LatLng(1.3462006,103.6793612), zoom: 12),
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },

@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'MyDialog.dart';
 import 'package:intl/intl.dart';
-import 'using_dialog.dart';
+import 'selectDriver.dart';
 
 class confirmbook extends StatefulWidget {
   @override
@@ -52,170 +52,6 @@ class _confirmState extends State<confirmbook> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 0),),
-//                    new Row(children: <Widget>[
-//                      new Container(
-////                          color: Colors.white,
-//                          margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-//                          height: 90.0,
-//                          width: 90.0,
-////                          color: Colors.black,
-//                          child: Image.asset(
-//                            'android/assets/luo.jpg',
-//                            height: 90,
-//                            width: 90,
-//                          )),
-//                      new Container(
-//                          color: Colors.white,
-//                          height: 60.0,
-//                          width: 120.0,
-////                          alignment: Alignment.centerRight,
-//                          child: Column(
-//                            children: <Widget>[
-//                              Padding(
-//                                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-//                                  child: Text(" Luo Yong Hao",
-//                                      textAlign: TextAlign.left,
-//                                      style: new TextStyle(
-//                                          color: Colors.black,
-//                                          backgroundColor: Colors.white,
-//                                          fontSize: 18.0,
-//                                          fontWeight: FontWeight.bold))),
-//                              Padding(
-//                                  padding: EdgeInsets.fromLTRB(0, 3, 0, 0),
-//                                  child: Text("Score: 5.0",
-//                                      textAlign: TextAlign.left,
-//                                      style: new TextStyle(
-//                                          color: Colors.black,
-//                                          backgroundColor: Colors.white,
-//                                          fontSize: 14.0,
-//                                          fontWeight: FontWeight.bold)))
-//                            ],
-//                          )),
-//                      new Container(
-//                          color: Colors.white,
-//                          height: 60.0,
-//                          width: 80.0,
-////                          alignment: Alignment.centerRight,
-//                          margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
-//                          child: Padding(
-//                              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-//                              child: Text("Talkative",
-//                                  textAlign: TextAlign.right,
-//                                  style: new TextStyle(
-//                                      color: Colors.black,
-//                                      backgroundColor: Colors.white,
-//                                      fontSize: 18.0,
-//                                      fontWeight: FontWeight.bold))))
-//                    ]),
-//                    new Row(children: <Widget>[
-//                      new Container(
-////                          color: Colors.white,
-//                          margin: EdgeInsets.fromLTRB( 10, 0, 0, 0),
-//                          height: 90.0,
-//                          width: 90.0,
-////                          color: Colors.black,
-//                          child: Image.asset(
-//                            'android/assets/lin.jpg',
-//                            height: 90,
-//                            width: 90,
-//                          )),
-//                      new Container(
-//                          color: Colors.white,
-//                          height: 60.0,
-//                          width: 120.0,
-////                          alignment: Alignment.centerRight,
-//                          child: Column(
-//                            children: <Widget>[
-//                              Padding(
-//                                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-//                                  child: Text("Lin Wei Han",
-//                                      textAlign: TextAlign.left,
-//                                      style: new TextStyle(
-//                                          color: Colors.black,
-//                                          backgroundColor: Colors.white,
-//                                          fontSize: 18.0,
-//                                          fontWeight: FontWeight.bold))),
-//                              Padding(
-//                                  padding: EdgeInsets.fromLTRB(0, 3, 0, 0),
-//                                  child: Text("Score: 4.7",
-//                                      textAlign: TextAlign.left,
-//                                      style: new TextStyle(
-//                                          color: Colors.black,
-//                                          backgroundColor: Colors.white,
-//                                          fontSize: 14.0,
-//                                          fontWeight: FontWeight.bold)))
-//                            ],
-//                          )),
-//                      new Container(
-//                          color: Colors.white,
-//                          height: 60.0,
-//                          width: 80.0,
-////                          alignment: Alignment.centerRight,
-//                          margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
-//                          child: Padding(
-//                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-//                              child: Text("Not talkative ",
-//                                  textAlign: TextAlign.left,
-//                                  style: new TextStyle(
-//                                      color: Colors.black,
-//                                      backgroundColor: Colors.white,
-//                                      fontSize: 18.0,
-//                                      fontWeight: FontWeight.bold))))
-//                    ]),
-//                    new Row(children: <Widget>[
-//                      new Container(
-////                          color: Colors.white,
-//                          height: 90.0,
-//                          width: 90.0,
-//                          margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-//                          child: Image.asset(
-//                            'android/assets/huang.jpeg',
-//                            height: 90,
-//                            width: 90,
-//                          )),
-//                      new Container(
-//                          color: Colors.white,
-//                          height: 60.0,
-//                          width: 120.0,
-//                          alignment: Alignment.centerRight,
-//                          child: Column(
-//                            children: <Widget>[
-//                              Padding(
-//                                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-//                                  child: Text("Huang Ting",
-//                                      textAlign: TextAlign.left,
-//                                      style: new TextStyle(
-//                                          color: Colors.black,
-//                                          backgroundColor: Colors.white,
-//                                          fontSize: 18.0,
-//                                          fontWeight: FontWeight.bold))),
-//                              Padding(
-//                                  padding: EdgeInsets.fromLTRB(0, 3, 0, 0),
-//                                  child: Text("Score: 4.8",
-//                                      textAlign: TextAlign.left,
-//                                      style: new TextStyle(
-//                                          color: Colors.black,
-//                                          backgroundColor: Colors.white,
-//                                          fontSize: 14.0,
-//                                          fontWeight: FontWeight.bold)))
-//                            ],
-//                          )),
-//                      new Container(
-//                          color: Colors.white,
-//                          height: 60.0,
-//                          width: 80.0,
-////                          alignment: Alignment.centerRight,
-//                          margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
-//                          child: Padding(
-//                              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-//                              child: Text("Not talkative",
-//                                  textAlign: TextAlign.left,
-//                                  style: new TextStyle(
-//                                      color: Colors.black,
-//                                      backgroundColor: Colors.white,
-//                                      fontSize: 18.0,
-//                                      fontWeight: FontWeight.bold))))
-//                    ]),、
                     new Row(
                       children: <Widget>[
                         new Container(
@@ -227,7 +63,8 @@ class _confirmState extends State<confirmbook> {
                               Fluttertoast.showToast(
                                   msg:
                                   "Select Driver");
-                              Navigator.pushNamed(context, "/selectDriver");
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/selectDriver');
                             },
                             textColor: Colors.black,
                             color: Colors.white,
@@ -266,7 +103,8 @@ class _confirmState extends State<confirmbook> {
                           Fluttertoast.showToast(
                               msg:
                               "Set up Payment Details");
-                          Navigator.pushNamed(context, "/Payment");
+                          Navigator.of(context)
+                              .pushReplacementNamed('/Payment');
                         },
                         textColor: Colors.black,
                         color: Colors.white,
@@ -307,7 +145,8 @@ class _confirmState extends State<confirmbook> {
                                 Fluttertoast.showToast(
                                     msg:
                                     "Thank You for choosing Uber ,Your ride will arrive very soon");
-                                Navigator.pushNamed(context, "/Home");
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/Home');
                               },
                               textColor: Colors.white,
                               color: Colors.deepOrange[800],
