@@ -49,7 +49,8 @@ class _UsingDialogState extends State<UsingDialog> {
                       color: Colors.orangeAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              onPressed: () { Navigator.pushNamed(context, "/confirmBook");},
+              onPressed: () {Navigator.of(context)
+                  .pushReplacementNamed('/confirmBook');},
             ),
           ],
         );

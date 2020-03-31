@@ -11,7 +11,7 @@ class selectDest extends StatefulWidget {
 class _MyAppState1 extends State<selectDest> {
   GoogleMapController myMapController;
   final Set<Marker> _markers = new Set();
-  static const LatLng _mainLocation = const LatLng(19.0737446, 72.8994785);
+  static const LatLng _mainLocation = const LatLng(1.3462006,103.6793612);
 
   @override
   Widget build(BuildContext context) {
@@ -85,14 +85,14 @@ class _MyAppState1 extends State<selectDest> {
                   });
                 },
               )),
-          Center(
-              child: new Container(
-                child: Image.asset(
-                  'android/assets/taxi.png',
-                  height: 90,
-                  width: 40,
-                ),
-              )),
+//          Center(
+//              child: new Container(
+//                child: Image.asset(
+//                  'android/assets/taxi.png',
+//                  height: 90,
+//                  width: 40,
+//                ),
+//              )),
           Center(
             child: new Container(
               //color: Colors.grey[400],
@@ -102,7 +102,8 @@ class _MyAppState1 extends State<selectDest> {
               alignment: Alignment.bottomCenter,
               child: new RaisedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "/driverMap");
+                  Navigator.of(context)
+                      .pushReplacementNamed('/driverMap');
                 },
                 textColor: Colors.white,
                 color: Colors.deepOrange[800],

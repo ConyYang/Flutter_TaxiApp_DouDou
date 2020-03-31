@@ -38,8 +38,7 @@ class _StartPageState extends State<StartPage>  {
                             textBaseline: TextBaseline.alphabetic),
                       ),
                       onPressed: () {
-                        print("Pressed on a RaisedButton");
-                        Navigator.of(context).pushNamed('/Wrapper'); //route
+                        //route
                       },
                     ),
                   ],

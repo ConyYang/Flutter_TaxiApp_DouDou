@@ -13,7 +13,7 @@ class booking extends StatefulWidget {
 class _bookingState extends State<booking> {
   GoogleMapController myMapController;
   final Set<Marker> _markers = new Set();
-  static const LatLng _mainLocation = const LatLng(19.0737446, 72.8994785);
+  static const LatLng _mainLocation = const LatLng(1.3462006,103.6793612);
 
   var _date = DateFormat("EEEE, MMM d").format(new DateTime.now());
   var _time =
@@ -267,12 +267,13 @@ class _bookingState extends State<booking> {
                             padding: EdgeInsets.fromLTRB(20, 0, 10, 0),
                             child: RawMaterialButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, "/Food");
+                                Navigator.pushNamed(context, "/TripRate");
                               },
                               child: IconTheme(
-                                  data: IconThemeData(color: Colors.grey),
-                                  child: Icon(Icons.restaurant)),
+                                  data: IconThemeData(color: Colors.white),
+                                  child: Icon(Icons.speaker_notes)),
                               shape: CircleBorder(),
+                              fillColor: Colors.greenAccent,
 //                              fillColor: Colors.black,
                             ),
                           ),
@@ -288,7 +289,7 @@ class _bookingState extends State<booking> {
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                               child: new Container(
                                 height: 15.0,
-                                width: 180,
+                                width: 160,
 //                                  color: Colors.grey,
                                 child: Text(
                                   "Ride",
@@ -307,13 +308,13 @@ class _bookingState extends State<booking> {
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                               child: new Container(
                                 height: 15,
-                                width: 160,
+                                width: 140,
 //                                  color: Colors.green,
                                 child: Text(
-                                  "Order Food",
+                                  "Write Remarks",
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
-                                      fontSize: 12.0, color: Colors.grey),
+                                      fontSize: 12.0, color: Colors.black),
                                 ),
                               ))),
                     ]),

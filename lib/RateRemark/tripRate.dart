@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/RateRemark/FadeAnimation.dart';
-import 'package:singtaxi/tripRemark.dart';
-import 'package:flutter/material.dart';
+import 'package:singtaxi/RateRemark/remark.dart';
 
-void main() => runApp(
-    MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomePage()
-    )
-);
-
-class HomePage extends StatelessWidget {
+class TripRatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +18,7 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 20,),
               FadeAnimation(1.5, makeItem(image: '', tag: 'red', context: context, imageString: "android/assets/Lin.jpg",
-              date: "2020.4.2",place: "Westwood Secondary School -- Unity Center", price: "25.70")),
+                  date: "2020.4.2",place: "Westwood Secondary School -- Unity Center", price: "25.70")),
               FadeAnimation(1.6, makeItem(image: '', tag: 'blue', context: context, imageString:"android/assets/Luo.jpg",
                   date: "2020.3.30",place: "Bukit Timah -- Botanic Garden", price: "10.95")),
               FadeAnimation(1.7, makeItem(image: '', tag: 'white', context: context, imageString:"android/assets/Ong.jpg",
@@ -43,7 +35,8 @@ class HomePage extends StatelessWidget {
       tag: tag,
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Shoes(image: image,)));
+          Navigator.of(context)
+              .pushReplacementNamed('/Remark');
         },
         child: Container(
           height: 250,
@@ -58,7 +51,7 @@ class HomePage extends StatelessWidget {
               ),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.blueGrey[400],
+                    color: Colors.lightGreen[100],
                     blurRadius: 10,
                     offset: Offset(0, 10)
                 )
@@ -75,9 +68,9 @@ class HomePage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        FadeAnimation(1, Text(date, style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),)),
+                        FadeAnimation(1, Text(date, style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)),
                         SizedBox(height: 10,),
-                        FadeAnimation(1.1, Text(place, style: TextStyle(color: Colors.white, fontSize: 20),)),
+                        FadeAnimation(1.1, Text(place, style: TextStyle(color: Colors.black, fontSize: 20),)),
 
                       ],
                     ),
@@ -87,15 +80,15 @@ class HomePage extends StatelessWidget {
                           width: 150.0,
                           height: 150.0,
                           decoration: new BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: new DecorationImage(
-                                  fit: BoxFit.fitWidth,
-                                  image: new AssetImage(imageString)),
-                              )
-                          )),
+                            shape: BoxShape.circle,
+                            image: new DecorationImage(
+                                fit: BoxFit.fitWidth,
+                                image: new AssetImage(imageString)),
+                          )
+                      )),
                 ],
               ),
-              FadeAnimation(1.2, Text(price + "\$", style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),)),
+              FadeAnimation(1.2, Text(price + "\$", style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),)),
             ],
           ),
         ),

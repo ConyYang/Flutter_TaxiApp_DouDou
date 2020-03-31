@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:singtaxi/RateRemark/tripRate.dart';
 import 'package:singtaxi/main.dart';
 import 'package:singtaxi/screens/wrapper.dart';
 import 'StartPage.dart';
@@ -8,15 +9,16 @@ import 'ProfilePage.dart';
 import 'DropDownPage.dart';
 import 'book/booking.dart';
 import 'book/confirmBook.dart';
-import 'doudouEat.dart';
-import 'book/FreeRides.dart';
+import 'RateRemark/remark.dart';
+import 'FreeRides.dart';
 import 'AboutUs.dart';
 import 'Payment.dart';
 import 'book/selectdest.dart';
 import 'Settings.dart';
 import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
 import 'book/driverMap.dart';
-import 'book/using_dialog.dart';
+import 'book/selectDriver.dart';
+import 'RateRemark/tripRate.dart';
 
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
@@ -55,8 +57,10 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => UsingDialog());
     case '/Home':
       return MaterialPageRoute(builder: (_) => booking());
-    case '/Food':
-      return MaterialPageRoute(builder: (_) => DouDouEat());
+    case '/TripRate':
+      return MaterialPageRoute(builder: (_) => TripRatePage());
+    case '/Remark':
+      return MaterialPageRoute(builder: (_) => RemarkPage());
     case '/Forget':
       return MaterialPageRoute(builder: (_) => forgetpassword());
     default:
