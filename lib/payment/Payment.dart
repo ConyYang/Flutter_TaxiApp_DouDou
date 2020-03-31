@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-import 'components/back_card_view.dart';
-import 'components/front_card_view.dart';
-import 'components/input_view_pager.dart';
-import 'components/my_appbar.dart';
-import 'components/round_button.dart';
+import 'back_card_view.dart';
+import 'front_card_view.dart';
+import 'input_view_pager.dart';
+import 'my_appbar.dart';
+import 'round_button.dart';
 import 'package:singtaxi/constanst.dart';
-import 'components/provider/state_provider.dart';
+import 'provider/state_provider.dart';
 import 'package:provider/provider.dart';
 
 class Payment extends StatefulWidget {

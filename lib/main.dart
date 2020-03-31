@@ -12,11 +12,11 @@ import 'package:singtaxi/services/auth.dart';
 import 'route_generator.dart';
 import 'package:provider/provider.dart';
 import 'package:singtaxi/models/user.dart';
-import 'package:singtaxi/components/provider/card_cvv_provider.dart';
-import 'package:singtaxi/components/provider/card_name_provider.dart';
-import 'package:singtaxi/components/provider/card_number_provider.dart';
-import 'package:singtaxi/components/provider/card_valid_provider.dart';
-import 'package:singtaxi/components/provider/state_provider.dart';
+import 'package:singtaxi/payment/provider/card_cvv_provider.dart';
+import 'package:singtaxi/payment/provider/card_name_provider.dart';
+import 'package:singtaxi/payment/provider/card_number_provider.dart';
+import 'package:singtaxi/payment/provider/card_valid_provider.dart';
+import 'package:singtaxi/payment/provider/state_provider.dart';
 
 import 'package:provider/provider.dart';
 

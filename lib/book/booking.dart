@@ -267,11 +267,11 @@ class _bookingState extends State<booking> {
                             padding: EdgeInsets.fromLTRB(20, 0, 10, 0),
                             child: RawMaterialButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, "/TripRate");
+                                Navigator.pushNamed(context, "/YourTrip");
                               },
                               child: IconTheme(
                                   data: IconThemeData(color: Colors.white),
-                                  child: Icon(Icons.speaker_notes)),
+                                  child: Icon(Icons.flag)),
                               shape: CircleBorder(),
                               fillColor: Colors.greenAccent,
 //                              fillColor: Colors.black,
@@ -311,7 +311,7 @@ class _bookingState extends State<booking> {
                                 width: 140,
 //                                  color: Colors.green,
                                 child: Text(
-                                  "Write Remarks",
+                                  "Your Trip",
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontSize: 12.0, color: Colors.black),

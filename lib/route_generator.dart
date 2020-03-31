@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:singtaxi/RateRemark/tripRate.dart';
+import 'package:singtaxi/YourTrip.dart';
 import 'package:singtaxi/main.dart';
 import 'package:singtaxi/screens/wrapper.dart';
 import 'StartPage.dart';
 import 'package:singtaxi/screens/authenticate/LoginPage.dart';
 import 'package:singtaxi/screens/home/WelcomePage.dart';
-import 'ProfilePage.dart';
-import 'DropDownPage.dart';
+import 'profile/ProfilePage.dart';
+import 'profile/DropDownPage.dart';
 import 'book/booking.dart';
 import 'book/confirmBook.dart';
 import 'RateRemark/remark.dart';
 import 'FreeRides.dart';
 import 'AboutUs.dart';
-import 'Payment.dart';
+import 'payment/Payment.dart';
 import 'book/selectdest.dart';
 import 'Settings.dart';
 import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
@@ -63,6 +64,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => RemarkPage());
     case '/Forget':
       return MaterialPageRoute(builder: (_) => forgetpassword());
+    case '/YourTrip':
+      return MaterialPageRoute(builder: (_) => YourTrip());
     default:
       return _errorRoute();
     }
