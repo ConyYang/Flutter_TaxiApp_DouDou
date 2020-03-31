@@ -15,7 +15,7 @@ import 'Payment.dart';
 import 'book/selectdest.dart';
 import 'Settings.dart';
 import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
-
+import 'book/driverMap.dart';
 
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
@@ -48,6 +48,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => FreeRides());
     case '/SelectDest':
       return MaterialPageRoute(builder: (_) => selectDest());
+    case '/driverMap':
+      return MaterialPageRoute(builder: (_) => driverMap());
     case '/Home':
       return MaterialPageRoute(builder: (_) => booking());
     case '/Food':
