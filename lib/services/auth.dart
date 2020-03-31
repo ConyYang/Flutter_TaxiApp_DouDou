@@ -10,7 +10,7 @@ import 'package:singtaxi/services/database.dart';
       User _userFromFirebaseUser(FirebaseUser user) {
         return user != null ? User(uid: user.uid) : null;
       }
-      
+
       // auth change user stream
       Stream<User> get user {
         return _auth.onAuthStateChanged
@@ -56,15 +56,24 @@ import 'package:singtaxi/services/database.dart';
         try{
           AuthResult result = await _auth.createUserWithEmailAndPassword(email: email,password :password);
           FirebaseUser user = result.user ;
+/*
+          try {
+            await user.sendEmailVerification();
+          }
+          catch (e){
+            print('An Error occured while trying to send email verification');
+            print(e.toString());
+            return null;
 
-         // await user.sendEmailVerification();
+          }
+          */
           //create a new coment for the user
           await DatabaseService(uid: user.uid).updateUserData(false,'New User', 'NILL', 0, 0, false, email, 'NILL', 'NILL', 'NILL');
 
 
           return _userFromFirebaseUser(user);
         }catch (e){
-        //  print('An Error occured while trying to send email verification');
+          print('An Error occured while trying to send email verification');
           print(e.toString());
           return null;
 
