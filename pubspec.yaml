@@ -78,6 +78,10 @@ flutter:
    - android/assets/visacard.png
    - android/assets/taxi.png
    - android/assets/friend.jpg
+   - android/assets/Huang.jpg
+   - android/assets/Lin.jpg
+   - android/assets/Luo.jpg
+   - android/assets/Ong.jpg
    #- images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

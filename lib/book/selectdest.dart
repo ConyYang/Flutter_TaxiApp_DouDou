@@ -102,7 +102,7 @@ class _MyAppState1 extends State<selectDest> {
               alignment: Alignment.bottomCenter,
               child: new RaisedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "/confirmBook");
+                  Navigator.pushNamed(context, "/driverMap");
                 },
                 textColor: Colors.white,
                 color: Colors.deepOrange[800],
