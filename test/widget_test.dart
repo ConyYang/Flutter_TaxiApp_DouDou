@@ -1,104 +1,123 @@
 import 'package:flutter/material.dart';
-import 'package:singtaxi/RateRemark/FadeAnimation.dart';
-import 'package:singtaxi/tripRemark.dart';
-import 'package:flutter/material.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 
-void main() => runApp(
-    MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomePage()
-    )
-);
+void main() => runApp(MyApp());
 
-class HomePage extends StatelessWidget {
+const List<Key> keys = [
+  Key('Network'),
+  Key('Network Dialog'),
+  Key('Flare'),
+  Key('Flare Dialog'),
+  Key('Asset'),
+  Key('Asset dialog'),
+];
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.brown[600],
-        title: Text("Trip Rate", style: TextStyle(color: Colors.white, fontSize: 25),),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 20,),
-              FadeAnimation(1.5, makeItem(image: '', tag: 'red', context: context, imageString: "android/assets/Lin.jpg",
-              date: "2020.4.2",place: "Westwood Secondary School -- Unity Center", price: "25.70")),
-              FadeAnimation(1.6, makeItem(image: '', tag: 'blue', context: context, imageString:"android/assets/Luo.jpg",
-                  date: "2020.3.30",place: "Bukit Timah -- Botanic Garden", price: "10.95")),
-              FadeAnimation(1.7, makeItem(image: '', tag: 'white', context: context, imageString:"android/assets/Ong.jpg",
-                  date: "2020.2.21",place: "Punggol -- Changi Beach Park", price: "19.00")),
-            ],
+    return MaterialApp(
+        theme: ThemeData(fontFamily: 'Nunito'),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.black,
+            title: Text('Giffy Dailog Example'),
           ),
-        ),
-      ),
-    );
+          body: MyHomePage(),
+        ));
   }
+}
 
-  Widget makeItem({image, tag, context, String imageString, String date, String place, String price}) {
-    return Hero(
-      tag: tag,
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Shoes(image: image,)));
-        },
-        child: Container(
-          height: 250,
-          width: double.infinity,
-          padding: EdgeInsets.all(20),
-          margin: EdgeInsets.only(bottom: 20),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover
-              ),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.blueGrey[400],
-                    blurRadius: 10,
-                    offset: Offset(0, 10)
-                )
-              ]
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        FadeAnimation(1, Text(date, style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),)),
-                        SizedBox(height: 10,),
-                        FadeAnimation(1.1, Text(place, style: TextStyle(color: Colors.white, fontSize: 20),)),
-
-                      ],
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    String networkimg =
+        'https://cdn.dribbble.com/users/750517/screenshots/8574989/media/7610aa397363fdfe6f2daa1145493aee.gif';
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          RaisedButton(
+            key: keys[0],
+            child: Text('Network Giffy'),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (_) => NetworkGiffyDialog(
+                    key: keys[1],
+                    image: Image.network(
+                      networkimg,
+                      fit: BoxFit.cover,
                     ),
-                  ),
-                  FadeAnimation(1.2,
-                      new Container(
-                          width: 150.0,
-                          height: 150.0,
-                          decoration: new BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: new DecorationImage(
-                                  fit: BoxFit.fitWidth,
-                                  image: new AssetImage(imageString)),
-                              )
-                          )),
-                ],
-              ),
-              FadeAnimation(1.2, Text(price + "\$", style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),)),
-            ],
+                    title: Text(
+                      "Ostrich Running",
+                      style: TextStyle(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    description: Text(
+                      'This is the Ostrich Running Dialog Box. This will help you to understand NEtwork Giffy Animation',
+                      textAlign: TextAlign.center,
+                    ),
+                    entryAnimation: EntryAnimation.RIGHT,
+                    onOkButtonPressed: (){},
+                  ));
+            },
           ),
-        ),
+          RaisedButton(
+            key: keys[2],
+            child: Text('Flare Giffy'),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (_) => FlareGiffyDialog(
+                    key: keys[3],
+                    flarePath: 'assets/space_demo.flr',
+                    flareAnimation: 'loading',
+                    title: Text(
+                      "Planet Reloading",
+                      style: TextStyle(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    description: Text(
+                      'This is the PLanet Reloading Dialog Box. This will help you to understand Flare Giffy Animation',
+                      textAlign: TextAlign.center,
+                    ),
+                    entryAnimation: EntryAnimation.TOP_LEFT,
+                    onOkButtonPressed: (){},
+                  ));
+            },
+          ),
+          RaisedButton(
+            key: keys[4],
+            child: Text('Asset Giffy'),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (_) => AssetGiffyDialog(
+                    key: keys[5],
+                    image: Image.asset('assets/rappi_basket.gif'),
+                    title: Text(
+                      "Rappi Basket",
+                      style: TextStyle(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    description: Text(
+                      'This is theRappi Basket Dialog Box. This will help you to understand Asset Giffy Animation',
+                      textAlign: TextAlign.center,
+                    ),
+                    entryAnimation: EntryAnimation.TOP_LEFT,
+                    onOkButtonPressed: (){},
+                  ));
+            },
+          ),
+        ],
       ),
     );
   }
