@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:singtaxi/models/profile.dart';
-
-
+import 'package:provider/provider.dart';
 class DatabaseService{
 
   final String uid;
   DatabaseService({this.uid});
   // collection reference
   final CollectionReference userProfile= Firestore.instance.collection('profile');
+  final Firestore _db = Firestore.instance;
+
 
 
   Future updateUserData(bool driver,String name, String talkative, int number, double rating, bool gender, String email, String license, String carplate, String payment) async
@@ -28,35 +29,38 @@ class DatabaseService{
     });
   }
 
-  //userdata form snapshot
-  List<Profile> _profileListFromSnapshot(QuerySnapshot snapshot){
-
-    return snapshot.documents.map((doc){
-      return Profile(
-          name: doc.data['name'] ?? '',
-          email: doc.data['email'] ?? ''
+//get stream
 
 
-      );
+ Future<Profile> getProfile(String uid) async{
+
+    var snap = await _db.collection('name').document(uid).get();
+
+    return Profile.fromMap(snap.data);
+
+ }
+
+ Stream<Profile>  streamProfile(String uid){
+    return _db
+
+        .collection('name')
+        .document(uid)
+        .snapshots()
+        .map((snap) => Profile.fromMap(snap.data));
 
 
 
-    }).toList();
-
-  }
+ }
 
 
-//get brews stream
-Stream<List<Profile>> get profile {
-    return userProfile.snapshots().map(_profileListFromSnapshot);
+
+
 }
 
 
 
 
 
-
-  }
 
 
 

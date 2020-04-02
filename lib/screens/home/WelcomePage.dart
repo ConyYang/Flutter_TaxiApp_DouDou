@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:singtaxi/services/auth.dart';
 import 'package:singtaxi/services/database.dart';
 class WelcomePage extends StatefulWidget {
   WelcomePage ({Key key, this.title}) :super(key: key);
   final String title;
+  final auth = FirebaseAuth.instance;
+  final db = DatabaseService();
   @override
   _WelcomePageState createState() => _WelcomePageState();
 }
@@ -14,7 +18,20 @@ class _WelcomePageState extends State<WelcomePage> {
   //final String title;
   //WelcomePage({Key key, this.title}) : super(key: key);
   @override
+
+  Widget build(BuildContext context)
+  {
+    return MultiProvider(
+      providers: [
+        StreamProvider<FirebaseUser>.value(
+          stream: FirebaseAuth.instance.onAuthStateChanged
+        )
+      ]
+    )
+  }
+
   Widget build(BuildContext context) {
+
     return new Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
@@ -123,5 +140,7 @@ class _WelcomePageState extends State<WelcomePage> {
         ],
       ),
     );
+
   }
+
 }
