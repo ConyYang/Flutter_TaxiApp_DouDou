@@ -18,11 +18,11 @@ class TripRatePage extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 20,),
               FadeAnimation(1.5, makeItem(image: '', tag: 'red', context: context, imageString: "android/assets/Lin.jpg",
-                  date: "2020.4.2",place: "Westwood Secondary School -- Unity Center", price: "25.70")),
+                  date: "2020.4.2",place: "Westwood Secondary School -- Unity Center", price: "25.70\$", color: Colors.green[100])),
               FadeAnimation(1.6, makeItem(image: '', tag: 'blue', context: context, imageString:"android/assets/Luo.jpg",
-                  date: "2020.3.30",place: "Bukit Timah -- Botanic Garden", price: "10.95")),
+                  date: "2020.3.30",place: "Driver is Late", price: "Cancel",color: Colors.redAccent[100])),
               FadeAnimation(1.7, makeItem(image: '', tag: 'white', context: context, imageString:"android/assets/Ong.jpg",
-                  date: "2020.2.21",place: "Punggol -- Changi Beach Park", price: "19.00")),
+                  date: "2020.2.21",place: "Punggol -- Changi Beach Park", price: "19.00\$",color: Colors.green[100])),
             ],
           ),
         ),
@@ -30,7 +30,16 @@ class TripRatePage extends StatelessWidget {
     );
   }
 
-  Widget makeItem({image, tag, context, String imageString, String date, String place, String price}) {
+  Widget makeItem({
+    image,
+    tag,
+    context,
+    String imageString,
+    String date,
+    String place,
+    String price,
+    Color color
+  }) {
     return Hero(
       tag: tag,
       child: GestureDetector(
@@ -51,7 +60,7 @@ class TripRatePage extends StatelessWidget {
               ),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.lightGreen[100],
+                    color: color,
                     blurRadius: 10,
                     offset: Offset(0, 10)
                 )
@@ -88,7 +97,7 @@ class TripRatePage extends StatelessWidget {
                       )),
                 ],
               ),
-              FadeAnimation(1.2, Text(price + "\$", style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),)),
+              FadeAnimation(1.2, Text(price , style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),)),
             ],
           ),
         ),

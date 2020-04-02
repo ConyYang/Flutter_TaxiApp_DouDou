@@ -12,7 +12,7 @@ import 'book/booking.dart';
 import 'book/confirmBook.dart';
 import 'RateRemark/remark.dart';
 import 'FreeRides.dart';
-import 'AboutUs.dart';
+import 'feedBack.dart';
 import 'payment/Payment.dart';
 import 'book/selectdest.dart';
 import 'Settings.dart';
@@ -20,6 +20,8 @@ import 'package:singtaxi/screens/authenticate/forgetpassword.dart';
 import 'book/driverMap.dart';
 import 'book/selectDriver.dart';
 import 'RateRemark/tripRate.dart';
+import 'package:singtaxi/chat/chats.dart';
+import 'profile/driverImage.dart';
 
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
@@ -36,6 +38,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => WelcomePage());
     case '/profile':
       return MaterialPageRoute(builder: (_) => ProfilePage());
+    case '/DriverImage':
+      return MaterialPageRoute(builder: (_) => DriverImage());
     case '/DropDown':
       return MaterialPageRoute(builder: (_) => DropDownPage());
     case '/Book':
@@ -43,7 +47,7 @@ class RouteGenerator{
     case '/confirmBook':
       return MaterialPageRoute(builder: (_) => confirmbook());
     case '/AboutUs':
-      return MaterialPageRoute(builder: (_) => AboutUs());
+      return MaterialPageRoute(builder: (_) => feedBack());
     case '/Payment':
       return MaterialPageRoute(builder: (_) => Payment());
     case '/Setting':
@@ -66,6 +70,8 @@ class RouteGenerator{
       return MaterialPageRoute(builder: (_) => forgetpassword());
     case '/YourTrip':
       return MaterialPageRoute(builder: (_) => YourTrip());
+    case '/Chats':
+      return MaterialPageRoute(builder: (_) => Chats());
     default:
       return _errorRoute();
     }

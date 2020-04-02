@@ -6,7 +6,7 @@ import 'package:singtaxi/screens/authenticate/authenticate.dart';
 import 'package:singtaxi/screens/home/home.dart';
 import 'package:provider/provider.dart';
 import 'package:singtaxi/models/user.dart';
-
+import 'home/onboarding_screen.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class Wrapper extends StatelessWidget {
     print (user);
     //return either home or authenticate widget
     if (user == null) {
-      return Authenticate();
+      return OnboardingScreen();
     } else {
 
       return WelcomePage();

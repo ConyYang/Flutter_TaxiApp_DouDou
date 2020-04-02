@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'map_request.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
+
 const apiKey = "AIzaSyAZmDfNcXd5dgoSDKNKKNAKtifBhfoeYu0";
 
 const double CAMERA_ZOOM = 13;
@@ -221,7 +222,8 @@ class YourTripState extends State<YourTrip> with SingleTickerProviderStateMixin 
     return Container(
       child: FloatingActionButton(
         backgroundColor: Colors.green,
-        onPressed: null,
+        onPressed: (){Navigator.of(context).pushNamed('/Chats');
+        print("pressed");},
         tooltip: 'Talk',
         child: Icon(Icons.speaker_notes,color: Colors.white,),
       ),
@@ -355,6 +357,15 @@ class YourTripState extends State<YourTrip> with SingleTickerProviderStateMixin 
           title: Text("Check trip"),
           backgroundColor: Colors.brown[600],
         ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            Navigator.of(context).pop();
+            Navigator.of(context).pushNamed('/Chats');
+          },
+          label: Text('Chat With Driver'),
+          icon: Icon(Icons.comment),
+          backgroundColor: Colors.green,
+        ),
         body: Container(
         child: Stack(
           children: <Widget>[
@@ -375,24 +386,24 @@ class YourTripState extends State<YourTrip> with SingleTickerProviderStateMixin 
               ),
             ),
             new Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Transform(
-                  transform: Matrix4.translationValues(
-                    0.0,
-                    _translateButton.value * 4.0,
-                    0.0,
-                  ),
-                  child: carLocation(),
-                ),
                 Transform(
                   transform: Matrix4.translationValues(
                     0.0,
                     _translateButton.value * 3.0,
                     0.0,
                   ),
-                  child: talk(),
+                  child: carLocation(),
                 ),
+//                Transform(
+//                  transform: Matrix4.translationValues(
+//                    0.0,
+//                    _translateButton.value * 3.0,
+//                    0.0,
+//                  ),
+//                  child: talk(),
+//                ),
                 Transform(
                   transform: Matrix4.translationValues(
                     0.0,
