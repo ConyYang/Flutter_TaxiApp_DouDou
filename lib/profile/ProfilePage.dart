@@ -155,7 +155,44 @@ class _ProfilePageState extends State<ProfilePage> {
                             icon: Icon(Icons.star,color: Colors.black),
                             onPressed: () {
                               //print("Pressed on a RaisedButton");
-                              Navigator.of(cx).pushNamed('/DropDown'); //route
+                              showDialog(
+                                context: cx,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Row(
+                                        children:[
+                                          new Container(
+                                            child: new Image.asset(
+                                              'android/assets/cony.jpg',
+                                              height: 50.0,
+                                              width: 50.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Text(' Score 4.6     '),
+
+                                          Icon(
+                                            Icons.stars,
+                                            color: Colors.red,
+                                            size: 30.0,
+                                          ),
+                                        ]
+                                    ),
+                                    content: Text("You have a good Reputaion"),
+
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        child: Text("OK"),
+                                        onPressed: () {
+                                          //Put your code here which you want to execute on Cancel button click.
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                              //Navigator.of(cx).pushNamed('/DropDown'); //route
                             }
                         ),
                         Text('Reputation',style: TextStyle(
@@ -311,7 +348,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: new Text("To be a Driver"),
                             onPressed: () {
                               print("Pressed on a RaisedButton");
-                              Navigator.of(cx).pushNamed('/'); //route
+                              Navigator.of(cx).pushNamed('/DriverImage'); //route
                             },
                             splashColor: Colors.yellowAccent,
                           )

@@ -75,7 +75,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             ListTile(
               leading: Icon(Icons.speaker_notes),
-              title: Text('Remark'),
+              title: Text('Trip History'),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
@@ -96,8 +96,7 @@ class _WelcomePageState extends State<WelcomePage> {
               title: Text('Setting'),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/Setting');
+                Navigator.of(context).pushNamed('/Chats');
               },
             ),
             ListTile(

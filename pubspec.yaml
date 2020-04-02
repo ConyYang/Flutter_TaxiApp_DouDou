@@ -35,6 +35,7 @@ dependencies:
   google_map_polyline: 0.2.0+1
   simple_animations: 1.3.11
   http: 0.12.0+4
+  cached_network_image: 2.0.0
 
 
 
@@ -49,7 +50,7 @@ dependencies:
   flip_card: 0.4.4
   multiple_select: ^0.1.22
   giffy_dialog: 1.7.0
-
+  rate_my_app: ^0.4.0
 
 dev_dependencies:
   flutter_test:
@@ -81,7 +82,7 @@ flutter:
    - android/assets/UserPreference.jpg
    - android/assets/mastercard.png
    - android/assets/visacard.png
-   - android/assets/taxi.png
+   - android/assets/taxi.jpg
    - android/assets/friend.jpg
    - android/assets/Huang.jpg
    - android/assets/Lin.jpg
@@ -93,6 +94,8 @@ flutter:
    - android/assets/data3.json
    - android/assets/data4.json
    - android/assets/cryFace.png
+   - android/assets/logo.jpg
+   - android/assets/futuretaxi.gif
    #- images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
