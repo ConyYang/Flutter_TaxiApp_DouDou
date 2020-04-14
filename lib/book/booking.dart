@@ -60,7 +60,7 @@ class _bookingState extends State<booking> {
                           color: Colors.white,
                           child: Padding(
                               padding: EdgeInsets.fromLTRB(0, 6, 0, 15),
-                              child: new Text("Good evening , Yubei",
+                              child: new Text("Good Afternoon , Yubei",
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       color: Colors.brown[900],
