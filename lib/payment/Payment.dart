@@ -74,6 +74,26 @@ class _PaymentState extends State<Payment> {
                 }),
               ),
             ),
+            RaisedButton(
+//                child: Center(
+//                  child: Text(
+//                    'REGISTER',
+//                    style: TextStyle(
+//                        color: Colors.white,
+//                        fontWeight: FontWeight.bold,
+//                        fontFamily: 'Montserrat'),
+//                  ),
+//                ),
+             onPressed: () async {Navigator.of(context).pushNamed('/confirmBook');},
+              //onPressed: () async {Navigator.of(context).pushNamed('/driverMap');},
+              textColor: Colors.white,
+              color: Colors.orangeAccent,
+              child: new Text(
+                "DONE",
+                textAlign: TextAlign.center,
+                style: new TextStyle(fontSize: 16.0, color: Colors.white),
+              ),
+            ),
           ],
         ),
 

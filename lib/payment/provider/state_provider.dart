@@ -13,7 +13,8 @@ class StateProvider with ChangeNotifier {
       _currentState = InputState.CVV;
     }
     print(_currentState);
-    notifyListeners();
+    //notifyListeners();
+
   }
 
   InputState getCurrentState() {

@@ -66,6 +66,7 @@ class _confirmState extends State<confirmbook> {
                                 Navigator.of(context)
                                     .pushReplacementNamed('/selectDriver');
                             },
+
                             textColor: Colors.black,
                             color: Colors.white,
                             child: new Text("Select Driver                         ",
@@ -145,9 +146,14 @@ class _confirmState extends State<confirmbook> {
                                 Fluttertoast.showToast(
                                     msg:
                                     "Thank You for choosing Uber ,Your ride will arrive very soon");
-                                Navigator.of(context)
-                                    .pushReplacementNamed('/Home');
+                                Navigator.pushNamed(context, '/Welcome');
                               },
+//                              onPressed: () async {
+//                                Fluttertoast.showToast(
+//                                    msg:
+//                                    "Select Driver");
+//                                Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false);
+//                              },
                               textColor: Colors.white,
                               color: Colors.deepOrange[800],
                               child: new Text(

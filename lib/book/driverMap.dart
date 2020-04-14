@@ -29,10 +29,8 @@ class driverMapState extends State<driverMap> {
         actions: <Widget>[
           IconButton(
               icon: Icon(FontAwesomeIcons.borderAll),
-              onPressed: () {
-                Navigator.of(context)
-                    .pushReplacementNamed('/confirmBook');
-              }),
+              onPressed: () async {Navigator.of(context).pushNamed('/confirmBook');},
+              ),
         ],
       ),
       body: Stack(

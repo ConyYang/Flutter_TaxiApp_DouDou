@@ -143,10 +143,7 @@ class _MyAppState1 extends State<SelectDest> {
               margin: EdgeInsets.fromLTRB(0, 550, 55, 15),
               alignment: Alignment.bottomCenter,
               child: new RaisedButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed('/driverMap');
-                },
+                onPressed: () async {Navigator.of(context).pushNamed('/driverMap');},
                 textColor: Colors.white,
                 color: Colors.deepOrange[800],
                 child: new Text(

@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'map_request.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
-
+import 'package:singtaxi/Shared/Loading.dart';
 const apiKey = "AIzaSyAZmDfNcXd5dgoSDKNKKNAKtifBhfoeYu0";
 
 const double CAMERA_ZOOM = 13;
 const double CAMERA_TILT = 0;
 const double CAMERA_BEARING = 30;
 const LatLng SOURCE_LOCATION = LatLng(1.344152,103.6778873);
+bool loading = false;
 
 class TripData {
   final LatLng location;
@@ -351,8 +352,7 @@ class YourTripState extends State<YourTrip> with SingleTickerProviderStateMixin 
     if (flagFetchTripData) {
       fetchTripInfo(context);
     }
-
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
         appBar: AppBar(
           title: Text("Check trip"),
           backgroundColor: Colors.brown[600],
